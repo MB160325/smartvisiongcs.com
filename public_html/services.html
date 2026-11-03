@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SMART VISION | Engineering Operations & Services</title>
+    <meta name="description" content="Explore SMART VISION services: parametric architecture, heavy structural engineering, MEP design, interior architecture, urban masterplanning, sustainable design and site supervision in Egypt.">
+    <link rel="canonical" href="https://smartvisiongcs.com/services.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SMART VISION">
+    <meta property="og:title" content="SMART VISION | Engineering Operations &amp; Services">
+    <meta property="og:description" content="Explore SMART VISION services: parametric architecture, heavy structural engineering, MEP design, interior architecture, urban masterplanning, sustainable design and site supervision in Egypt.">
+    <meta property="og:url" content="https://smartvisiongcs.com/services.html">
+    <meta name="twitter:card" content="summary">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --bg-rich-dark: #0A0A0A;
+            --bg-glass: rgba(0, 0, 0, 0.75);
+            --bg-glass-card: rgba(255, 255, 255, 0.03);
+            --gold-primary: #D4AF37;
+            --gold-glow: #FFD54A;
+            --gold-hover: #E6C75A;
+            --gold-border: #C9A227;
+            --gold-alpha: rgba(212, 175, 55, 0.25);
+            --text-white: #FFFFFF;
+            --text-secondary: #CFCFCF;
+            --text-muted: #8F8F8F;
+            --grad-gold: linear-gradient(90deg, #8B6B15, #D4AF37, #FFD54A, #D4AF37, #8B6B15);
+            --grad-luxury-dark: linear-gradient(180deg, #000000, #0A0A0A, #000000);
+            --shadow-gold-glow: 0 0 15px rgba(212,175,55,0.35), 0 0 30px rgba(212,175,55,0.15);
+            --shadow-btn-hover: 0 0 20px #D4AF37, 0 0 40px rgba(212,175,55,0.5);
+            --glass-blur: blur(16px);
+            --font-main: 'Inter', sans-serif;
+            --transition-main: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%; background-color: var(--bg-pure-black); color: var(--text-white);
+            font-family: var(--font-main); overflow-x: hidden; scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-pure-black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-border); border-radius: 3px; }
+        html, body, h1, h2, h3, h4, .brand-logo, .nav-links a, .dock-item { font-family: var(--font-main) !important; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .blueprint-grid {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(212,175,55,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.02) 1px, transparent 1px);
+            background-size: 50px 50px; pointer-events: none; z-index: 1;
+        }
+
+        /* =============================================
+           PRELOADER — LUXURY HEX DESIGN
+           ============================================= */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100dvh;
+            background: var(--bg-pure-black); z-index: 99999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1), opacity 1s linear;
+            overflow: hidden;
+        }
+        #preloader::before {
+            content: ''; position: absolute; inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212,175,55,0.012) 2px, rgba(212,175,55,0.012) 4px);
+            pointer-events: none; z-index: 0;
+        }
+        #preloader::after {
+            content: ''; position: absolute; top: -40%; left: 0; width: 100%; height: 40%;
+            background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.04), transparent);
+            animation: scanBeam 3.5s ease-in-out infinite; pointer-events: none; z-index: 0;
+        }
+        @keyframes scanBeam { 0%{top:-40%} 100%{top:140%} }
+
+        .loader-stage { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+        .loader-hex-wrap { position: relative; width: 180px; height: 180px; display: flex; align-items: center; justify-content: center; }
+        .hex-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .hex-outline { fill: none; stroke: url(#hexGrad); stroke-width: 1.5; stroke-dasharray: 600; stroke-dashoffset: 600; animation: hexDraw 1.8s cubic-bezier(0.4,0,0.2,1) forwards 0.3s; }
+        .hex-inner { fill: none; stroke: rgba(212,175,55,0.12); stroke-width: 0.8; stroke-dasharray: 4 8; animation: rotateSlow 12s linear infinite; transform-origin: 90px 90px; }
+        @keyframes hexDraw { to { stroke-dashoffset: 0; } }
+        @keyframes rotateSlow { to { transform: rotate(360deg); } }
+
+        .loader-logo-img {
+            width: 68px; height: 68px; object-fit: contain; position: relative; z-index: 3;
+            animation: logoPulse 2.5s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 10px rgba(212,175,55,0.6));
+        }
+        @keyframes logoPulse {
+            0%   { filter: drop-shadow(0 0 6px rgba(212,175,55,0.4)); opacity: 0.85; }
+            100% { filter: drop-shadow(0 0 20px rgba(255,213,74,0.9)); opacity: 1; }
+        }
+
+        .loader-progress-track { width: 220px; height: 1px; background: rgba(212,175,55,0.15); margin-top: 32px; position: relative; overflow: hidden; border-radius: 1px; }
+        .loader-progress-fill { height: 100%; background: var(--grad-gold); width: 0%; transition: width 0.1s ease; box-shadow: 0 0 8px rgba(255,213,74,0.8); }
+        .loader-progress-fill::after { content: ''; position: absolute; right: -10px; top: -4px; width: 20px; height: 9px; background: radial-gradient(ellipse, rgba(255,255,255,0.8) 0%, transparent 70%); border-radius: 50%; }
+
+        .loader-info { margin-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .loader-brand-text { font-size: 1.1rem; font-weight: 700; letter-spacing: 8px; text-transform: uppercase; color: var(--text-white); }
+        .loader-brand-text span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .loader-sub-row { display: flex; align-items: center; gap: 16px; }
+        .loader-divider { width: 30px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-border)); }
+        .loader-divider.right { background: linear-gradient(to left, transparent, var(--gold-border)); }
+        .loader-tagline { font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); }
+        .loader-percentage { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; color: var(--gold-primary); margin-top: 6px; }
+
+        .loader-corner { position: absolute; width: 50px; height: 50px; opacity: 0.35; }
+        .loader-corner.tl { top: 30px; left: 30px; border-top: 1px solid var(--gold-primary); border-left: 1px solid var(--gold-primary); }
+        .loader-corner.tr { top: 30px; right: 30px; border-top: 1px solid var(--gold-primary); border-right: 1px solid var(--gold-primary); }
+        .loader-corner.bl { bottom: 30px; left: 30px; border-bottom: 1px solid var(--gold-primary); border-left: 1px solid var(--gold-primary); }
+        .loader-corner.br { bottom: 30px; right: 30px; border-bottom: 1px solid var(--gold-primary); border-right: 1px solid var(--gold-primary); }
+
+        /* =============================================
+           HEADER WITH LOGO
+           ============================================= */
+        .header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 22px 60px; display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: var(--transition-main);
+        }
+        .header.scrolled { padding: 12px 60px; background: var(--bg-glass); backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--gold-alpha); }
+
+        .brand-identity { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+        .header-logo-wrap { position: relative; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .header-logo-ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--gold-border); box-shadow: 0 0 10px rgba(212,175,55,0.2), inset 0 0 8px rgba(212,175,55,0.05); transition: var(--transition-main); }
+        .header-logo-ring::before { content: ''; position: absolute; inset: 3px; border-radius: 50%; border: 1px dashed rgba(212,175,55,0.25); animation: rotateSlow 18s linear infinite; }
+        .header-logo-img { width: 30px; height: 30px; object-fit: contain; position: relative; z-index: 2; filter: drop-shadow(0 0 4px rgba(212,175,55,0.4)); transition: var(--transition-main); }
+        .brand-identity:hover .header-logo-ring { box-shadow: var(--shadow-gold-glow); border-color: var(--gold-glow); }
+        .brand-identity:hover .header-logo-img { filter: drop-shadow(0 0 10px rgba(255,213,74,0.7)); transform: scale(1.05); }
+        .brand-separator { width: 1px; height: 28px; background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.4), transparent); }
+        .brand-logo { font-size: 1.45rem; font-weight: 900; letter-spacing: 3px; color: var(--text-white); line-height: 1; }
+        .brand-logo span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .brand-logo-sub { font-size: 0.52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); margin-top: 3px; font-weight: 400; }
+
+        .nav-links { display: flex; gap: 35px; }
+        .nav-links a { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary); position: relative; padding: 10px 0; }
+        .nav-links a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--grad-gold); transition: var(--transition-main); }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-hover); text-shadow: 0 0 8px rgba(255,213,74,0.3); }
+        .nav-links a:hover::before, .nav-links a.active::before { width: 100%; }
+
+        /* =============================================
+           MOBILE DOCK WITH LOGO
+           ============================================= */
+        .mobile-control-dock {
+            display: none; position: fixed; bottom: 25px; left: 50%;
+            transform: translateX(-50%) translateY(100px); width: 90%; max-width: 400px;
+            background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+            border: 1px solid rgba(212,175,55,0.4); border-radius: 40px;
+            padding: 9px 20px; justify-content: space-between; align-items: center;
+            z-index: 10000; box-shadow: var(--shadow-gold-glow); opacity: 0;
+            transition: transform 1s cubic-bezier(0.16,1,0.3,1), opacity 1s ease;
+        }
+        .mobile-control-dock.visible { transform: translateX(-50%) translateY(0); opacity: 1; }
+        .dock-brand-wrap { display: flex; align-items: center; gap: 9px; }
+        .dock-logo-mini { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(212,175,55,0.5); display: flex; align-items: center; justify-content: center; background: rgba(212,175,55,0.05); flex-shrink: 0; }
+        .dock-logo-mini img { width: 18px; height: 18px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(212,175,55,0.5)); }
+        .dock-brand { font-size: 0.85rem; font-weight: 700; color: var(--text-white); letter-spacing: 1px; }
+        .dock-brand span { color: var(--gold-primary); }
+        .dock-trigger-btn { background: var(--grad-gold); border: none; padding: 10px 20px; border-radius: 30px; font-family: var(--font-main); font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(212,175,55,0.4); transition: var(--transition-main); white-space: nowrap; }
+
+        .immersive-overlay-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100dvh; background: rgba(0,0,0,0.96); backdrop-filter: blur(30px); z-index: 9999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: var(--transition-main); }
+        .immersive-overlay-menu.active { opacity: 1; visibility: visible; }
+        .overlay-nav-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; width: 85%; max-width: 340px; text-align: center; }
+        .overlay-nav-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.15); padding: 22px 15px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; opacity: 0; transform: translateY(30px); transition: var(--transition-main); }
+        .immersive-overlay-menu.active .overlay-nav-item { opacity: 1; transform: translateY(0); }
+        .overlay-nav-item i { font-size: 1.3rem; color: var(--gold-primary); }
+        .overlay-nav-item span { font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary); }
+        .overlay-nav-item:hover { background: linear-gradient(135deg,rgba(212,175,55,0.1) 0%,transparent 100%); border-color: var(--gold-primary); box-shadow: var(--shadow-gold-glow); }
+
+        /* =============================================
+           PAGE SECTIONS (unchanged)
+           ============================================= */
+        .page-hero { position: relative; height: 60vh; width: 100%; display: flex; align-items: flex-end; padding: 80px 8%; background: var(--bg-pure-black); overflow: hidden; z-index: 2; border-bottom: 1px solid var(--gold-alpha); }
+        .page-hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat; background-attachment: fixed; filter: brightness(0.2) contrast(1.2); z-index: 1; }
+        .page-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, #0A0A0A 5%, transparent 100%); z-index: 2; }
+        .page-hero-content { position: relative; z-index: 3; max-width: 900px; transform: translateY(30px); opacity: 0; animation: fadeInUp 1s forwards 1.2s; }
+        .subtitle { color: var(--gold-primary); font-size: 0.85rem; letter-spacing: 5px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+        .page-title { font-size: clamp(2.5rem,4vw,4rem); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; line-height: 1.2; }
+        .page-title span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .services-matrix-section { padding: 120px 8%; background: var(--bg-rich-dark); position: relative; z-index: 2; }
+        .section-intel { text-align: center; margin-bottom: 80px; }
+        .section-intel h2 { font-size: clamp(1.8rem,3vw,3rem); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; }
+        .section-intel h2 span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-intel p { color: var(--text-muted); font-size: 0.95rem; letter-spacing: 1px; max-width: 600px; margin: 0 auto; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
+
+        .card-3d-wrapper { perspective: 1500px; width: 100%; height: 450px; cursor: pointer; }
+        .card-3d-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.2s ease-out; background: var(--bg-pure-black); border: 1px solid rgba(212,175,55,0.15); border-radius: 4px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .card-3d-wrapper:hover .card-3d-inner { border-color: var(--gold-primary); box-shadow: var(--shadow-gold-glow); }
+        .card-bg-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; filter: grayscale(80%) brightness(0.3); transition: var(--transition-main); transform: translateZ(-50px) scale(1.1); }
+        .card-3d-wrapper:hover .card-bg-layer { filter: grayscale(0%) brightness(0.5); }
+        .card-content-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 50px 40px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent 100%); transform: translateZ(60px); pointer-events: none; }
+        .serv-icon { font-size: 2.5rem; color: var(--gold-primary); margin-bottom: 25px; transform: translateZ(40px); text-shadow: 0 0 15px rgba(212,175,55,0.4); }
+        .serv-title { font-size: 1.5rem; color: var(--text-white); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 15px; transform: translateZ(30px); }
+        .serv-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; opacity: 0.8; transform: translateZ(20px); }
+        .serv-number { position: absolute; top: 30px; right: 30px; font-size: 3rem; color: var(--gold-primary); opacity: 0.1; font-weight: 900; transform: translateZ(10px); }
+
+        .workflow-section { padding: 120px 8%; background: var(--bg-pure-black); position: relative; z-index: 2; border-top: 1px solid var(--gold-alpha); }
+        .timeline-container { position: relative; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
+        .timeline-container::after { content: ''; position: absolute; width: 2px; background: var(--gold-alpha); top: 0; bottom: 0; left: 50%; margin-left: -1px; }
+        .timeline-node { padding: 10px 40px; position: relative; background: inherit; width: 50%; margin-bottom: 60px; }
+        .timeline-node:nth-child(odd)  { left: 0; text-align: right; }
+        .timeline-node:nth-child(even) { left: 50%; text-align: left; }
+        .timeline-node::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background: var(--bg-pure-black); border: 4px solid var(--gold-primary); top: 15px; border-radius: 50%; z-index: 1; box-shadow: var(--shadow-gold-glow); }
+        .timeline-node:nth-child(even)::after { left: -10px; }
+        .timeline-content { padding: 30px; background: var(--bg-glass-card); border: 1px solid rgba(212,175,55,0.1); border-radius: 4px; position: relative; transition: var(--transition-main); }
+        .timeline-content:hover { border-color: var(--gold-primary); box-shadow: var(--shadow-gold-glow); transform: translateY(-5px); }
+        .timeline-step { font-size: 0.9rem; color: var(--gold-primary); letter-spacing: 3px; margin-bottom: 10px; display: block; }
+        .timeline-title { font-size: 1.4rem; text-transform: uppercase; margin-bottom: 15px; color: var(--text-white); }
+        .timeline-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+        .cta-section { padding: 100px 8%; text-align: center; background: var(--grad-luxury-dark); border-top: 1px solid rgba(212,175,55,0.1); border-bottom: 1px solid rgba(212,175,55,0.1); position: relative; z-index: 2; }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        .cta-section h2 span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .cta-section p { color: var(--text-secondary); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn-luxury { display: inline-block; position: relative; padding: 18px 45px; background: transparent; color: var(--gold-primary); border: 1px solid var(--gold-border); text-transform: uppercase; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; cursor: pointer; overflow: hidden; z-index: 1; transition: var(--transition-main); }
+        .btn-luxury::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--grad-gold); z-index: -1; transition: var(--transition-main); }
+        .btn-luxury:hover { color: var(--bg-pure-black); box-shadow: var(--shadow-btn-hover); border-color: transparent; }
+        .btn-luxury:hover::before { left: 0; }
+
+        .executive-footer { background: #030303; padding: 80px 8% 40px 8%; position: relative; z-index: 2; border-top: 1px solid rgba(212,175,55,0.2); }
+        .footer-matrix { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 50px; margin-bottom: 60px; }
+        .footer-brand-column h3 { font-size: 1.5rem; margin-bottom: 20px; letter-spacing: 2px; }
+        .footer-brand-column h3 span { color: var(--gold-primary); }
+        .footer-brand-column p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+        .footer-links-column h4 { color: var(--gold-primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
+        .footer-links-column ul { display: flex; flex-direction: column; gap: 15px; }
+        .footer-links-column a { color: var(--text-secondary); font-size: 0.85rem; transition: var(--transition-main); }
+        .footer-links-column a:hover { color: var(--gold-glow); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-bottom p { color: var(--text-muted); font-size: 0.8rem; }
+        .footer-socials { display: flex; gap: 20px; }
+        .footer-socials a { width: 40px; height: 40px; border: 1px solid rgba(212,175,55,0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--text-secondary); transition: var(--transition-main); }
+        .footer-socials a:hover { border-color: var(--gold-primary); color: var(--bg-pure-black); background: var(--grad-gold); box-shadow: var(--shadow-gold-glow); }
+
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .mobile-control-dock { display: flex; }
+            .header { padding: 18px 24px; }
+            .header.scrolled { padding: 12px 24px; }
+            .header-logo-wrap { width: 40px; height: 40px; }
+            .header-logo-img { width: 26px; height: 26px; }
+            .brand-logo { font-size: 1.2rem; letter-spacing: 2px; }
+            .brand-logo-sub { display: none; }
+        }
+        @media (max-width: 768px) {
+            .timeline-container::after { left: 31px; }
+            .timeline-node { width: 100%; padding-left: 70px; padding-right: 0; text-align: left; }
+            .timeline-node:nth-child(odd), .timeline-node:nth-child(even) { left: 0; text-align: left; }
+            .timeline-node::after { left: 21px !important; }
+            .services-grid { grid-template-columns: 1fr; }
+            .card-3d-wrapper { height: 400px; }
+        }
+        @media (max-width: 480px) {
+            .brand-separator { display: none; }
+            .page-hero { padding: 60px 5%; height: 50vh; align-items: center; text-align: center; justify-content: center; }
+            .services-matrix-section, .workflow-section, .cta-section { padding: 80px 5%; }
+            .cta-section h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blueprint-grid"></div>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-corner tl"></div>
+        <div class="loader-corner tr"></div>
+        <div class="loader-corner bl"></div>
+        <div class="loader-corner br"></div>
+        <div class="loader-stage">
+            <div class="loader-hex-wrap">
+                <svg class="hex-svg" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%"   stop-color="#8B6B15"/>
+                            <stop offset="40%"  stop-color="#D4AF37"/>
+                            <stop offset="60%"  stop-color="#FFD54A"/>
+                            <stop offset="100%" stop-color="#8B6B15"/>
+                        </linearGradient>
+                    </defs>
+                    <polygon class="hex-outline" points="90,10 164,52 164,128 90,170 16,128 16,52"/>
+                    <polygon class="hex-inner"   points="90,28 148,62 148,118 90,152 32,118 32,62"/>
+                </svg>
+                <img class="loader-logo-img" src="tled_sign-removebg-preview.png" alt="Smart Vision Logo">
+            </div>
+            <div class="loader-progress-track">
+                <div class="loader-progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="loader-info">
+                <div class="loader-brand-text">SMART <span>VISION</span></div>
+                <div class="loader-sub-row">
+                    <div class="loader-divider"></div>
+                    <div class="loader-tagline">Engineering Consultancy</div>
+                    <div class="loader-divider right"></div>
+                </div>
+                <div class="loader-percentage" id="percentage-counter">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="main-header">
+        <a class="brand-identity" href="index.html">
+            <div class="header-logo-wrap">
+                <div class="header-logo-ring"></div>
+                <img class="header-logo-img" src="tled_sign-removebg-preview.png" alt="Smart Vision Logo">
+            </div>
+            <div class="brand-separator"></div>
+            <div>
+                <div class="brand-logo">SMART <span>VISION</span></div>
+                <div class="brand-logo-sub">Engineering Consultancy</div>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="partnerships.html">Partnerships</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- MOBILE DOCK -->
+    <nav class="mobile-control-dock" id="mobile-dock">
+        <div class="dock-brand-wrap">
+            <div class="dock-logo-mini">
+                <img src="tled_sign-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="dock-brand">SMART <span>VISION</span></div>
+        </div>
+        <button class="dock-trigger-btn" id="dock-trigger">
+            <i class="fa-solid fa-compass-drafting"></i> NAVIGATE
+        </button>
+    </nav>
+
+    <!-- OVERLAY MENU -->
+    <div class="immersive-overlay-menu" id="control-center-overlay">
+        <div class="overlay-nav-grid">
+            <a href="index.html" class="overlay-nav-item"><i class="fa-solid fa-house"></i><span>Home</span></a>
+            <a href="about.html" class="overlay-nav-item"><i class="fa-solid fa-building-user"></i><span>About</span></a>
+            <a href="services.html" class="overlay-nav-item" style="border-color:var(--gold-primary)"><i class="fa-solid fa-trowel-bricks"></i><span style="color:var(--gold-primary)">Services</span></a>
+            <a href="projects.html" class="overlay-nav-item"><i class="fa-solid fa-city"></i><span>Projects</span></a>
+            <a href="partnerships.html" class="overlay-nav-item"><i class="fa-solid fa-handshake-angle"></i><span>Partnerships</span></a>
+            <a href="team.html" class="overlay-nav-item"><i class="fa-solid fa-users-gear"></i><span>Team</span></a>
+            <a href="career.html" class="overlay-nav-item"><i class="fa-solid fa-briefcase"></i><span>Career</span></a>
+            <a href="news.html" class="overlay-nav-item"><i class="fa-solid fa-newspaper"></i><span>News</span></a>
+            <a href="contact.html" class="overlay-nav-item" style="grid-column:span 2"><i class="fa-solid fa-envelope"></i><span>Contact Hub</span></a>
+        </div>
+    </div>
+
+    <!-- SERVICES HERO -->
+    <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <span class="subtitle">Mastering Complexity</span>
+            <h1 class="page-title">Engineering <span>Operations</span> <br>& Services</h1>
+        </div>
+    </section>
+
+    <!-- 3D SERVICES GRID -->
+    <section class="services-matrix-section">
+        <div class="section-intel">
+            <h2>Core <span>Competencies</span></h2>
+            <p>Explore our suite of high-end structural and architectural services. Hover over each module to analyze its dimensions.</p>
+        </div>
+        <div class="services-grid">
+            <div class="card-3d-wrapper">
+                <div class="card-3d-inner">
+                    <div class="card-bg-layer" style="background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="card-content-layer">
+                        <div class="serv-number">01</div>
+                        <i class="fa-solid fa-pen-ruler serv-icon"></i>
+                        <h3 class="serv-title">Parametric Architecture</h3>
+                        <p class="serv-desc">Advanced algorithmic building design. Merging mathematical precision with fluid, luxurious structural aesthetics.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-3d-wrapper">
+                <div class="card-3d-inner">
+                    <div class="card-bg-layer" style="background-image: url('R.jpg');"></div>
+                    <div class="card-content-layer">
+                        <div class="serv-number">02</div>
+                        <i class="fa-solid fa-layer-group serv-icon"></i>
+                        <h3 class="serv-title">Heavy Structural Engineering</h3>
+                        <p class="serv-desc">Complex load calculations, seismic modeling, strengthening and repair for buildings and colossal landmarks.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-3d-wrapper">
+                <div class="card-3d-inner">
+                    <div class="card-bg-layer" style="background-image: url('WhatsApp Image 2026-05-24 at 11.39.06 PM.jpeg');"></div>
+                    <div class="card-content-layer">
+                        <div class="serv-number">03</div>
+                        <i class="fa-solid fa-chart-gantt serv-icon"></i>
+                        <h3 class="serv-title">MEP Design</h3>
+                        <p class="serv-desc">Precision-engineered MEP systems delivering seamless integration, operational excellence, and long-term reliability.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-3d-wrapper">
+                <div class="card-3d-inner">
+                    <div class="card-bg-layer" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="card-content-layer">
+                        <div class="serv-number">04</div>
+                        <i class="fa-solid fa-couch serv-icon"></i>
+                        <h3 class="serv-title">Luxury Interior Architecture</h3>
+                        <p class="serv-desc">Crafting internal spaces that echo the external grandeur, utilizing premium materials and bespoke lighting.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-3d-wrapper">
+                <div class="card-3d-inner">
+                    <div class="card-bg-layer" style="background-image: url('https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="card-content-layer">
+                        <div class="serv-number">05</div>
+                        <i class="fa-solid fa-city serv-icon"></i>
+                        <h3 class="serv-title">Urban Masterplanning</h3>
+                        <p class="serv-desc">Designing macro-scale city layouts, integrating infrastructure, public spaces, and traffic dynamics flawlessly.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-3d-wrapper">
+                <div class="card-3d-inner">
+                    <div class="card-bg-layer" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="card-content-layer">
+                        <div class="serv-number">06</div>
+                        <i class="fa-solid fa-leaf serv-icon"></i>
+                        <h3 class="serv-title">Sustainable Green Tech</h3>
+                        <p class="serv-desc">Implementing LEED-certified protocols, energy-efficient facades, and self-sustaining water systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKFLOW TIMELINE -->
+    <section class="workflow-section">
+        <div class="section-intel">
+            <h2>The <span>Execution</span> Workflow</h2>
+            <p>Our systematic approach to transforming abstract vision into structural reality.</p>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-node">
+                <div class="timeline-content">
+                    <span class="timeline-step">PHASE 01</span>
+                    <h3 class="timeline-title">Feasibility & Spatial Analysis</h3>
+                    <p class="timeline-desc">Extensive site surveying, environmental impact studies, and preliminary spatial zoning algorithms.</p>
+                </div>
+            </div>
+            <div class="timeline-node">
+                <div class="timeline-content">
+                    <span class="timeline-step">PHASE 02</span>
+                    <h3 class="timeline-title">Blueprint & 3D Modeling</h3>
+                    <p class="timeline-desc">Generating hyper-realistic renders and exacting structural CAD blueprints detailing every mechanical aspect.</p>
+                </div>
+            </div>
+            <div class="timeline-node">
+                <div class="timeline-content">
+                    <span class="timeline-step">PHASE 03</span>
+                    <h3 class="timeline-title">Procurement & Logistics</h3>
+                    <p class="timeline-desc">Specifications of the highest-grade materials globally, from specialized steel alloys to premium imported marble.</p>
+                </div>
+            </div>
+            <div class="timeline-node">
+                <div class="timeline-content">
+                    <span class="timeline-step">PHASE 04</span>
+                    <h3 class="timeline-title">Site Supervision</h3>
+                    <p class="timeline-desc">Precision-driven on-site supervision led by senior engineers, culminating in a rigorous multi-point quality assurance process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Initiate A New <span>Legacy</span></h2>
+        <p>Partner with SMART VISION to engineer your next architectural masterpiece. Our executive team is ready to analyze your requirements.</p>
+        <a href="contact.html" class="btn-luxury">Request Engineering Consultation</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="executive-footer">
+        <div class="footer-matrix">
+            <div class="footer-brand-column">
+                <h3>SMART <span>VISION</span></h3>
+                <p>Luxury Engineering Operations Hub — Engineering Architectural, Structural & MEP Excellence Since Inception.</p>
+            </div>
+            <div class="footer-links-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="projects.html">Portfolio</a></li>
+                    <li><a href="news.html">News & Updates</a></li>
+                </ul>
+            </div>
+             <div class="footer-links-column">
+            <h4>Connect</h4>
+            <div class="footer-socials" style="margin-top:0;">
+                <a href="https://wa.me/201021501250" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-osama-hassaan-354ba425?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/MohamedOsama.SV?locale=ar_AR" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SMART VISION Engineering Operations. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // 1. PRELOADER
+            const counterEl   = document.getElementById("percentage-counter");
+            const progressBar = document.getElementById("progress-fill");
+            const preloader   = document.getElementById("preloader");
+            const mobileDock  = document.getElementById("mobile-dock");
+            let current = 0;
+            const updateLoader = () => {
+                current += Math.floor(Math.random() * 5) + 2;
+                if (current >= 100) {
+                    current = 100;
+                    counterEl.innerText     = "100%";
+                    progressBar.style.width = "100%";
+                    clearInterval(loaderInterval);
+                    setTimeout(() => {
+                        preloader.style.opacity   = "0";
+                        preloader.style.transform = "translateY(-100dvh)";
+                        setTimeout(() => {
+                            preloader.style.display = "none";
+                            mobileDock.classList.add("visible");
+                        }, 1200);
+                    }, 300);
+                } else {
+                    counterEl.innerText     = current + "%";
+                    progressBar.style.width = current + "%";
+                }
+            };
+            const loaderInterval = setInterval(updateLoader, 25);
+
+            // 2. STICKY HEADER
+            const mainHeader = document.getElementById("main-header");
+            window.addEventListener("scroll", () => {
+                mainHeader.classList.toggle("scrolled", window.scrollY > 60);
+            });
+
+            // 3. MOBILE DOCK
+            const dockTrigger  = document.getElementById("dock-trigger");
+            const controlCenter= document.getElementById("control-center-overlay");
+            const overlayItems = document.querySelectorAll(".overlay-nav-item");
+            let isOverlayOpen  = false;
+            dockTrigger.addEventListener("click", () => {
+                isOverlayOpen = !isOverlayOpen;
+                if (isOverlayOpen) {
+                    controlCenter.classList.add("active");
+                    dockTrigger.innerHTML = `<i class="fa-solid fa-xmark"></i> SECURE`;
+                    dockTrigger.style.boxShadow = "0 0 25px #FFD54A";
+                    overlayItems.forEach((item, i) => { item.style.transitionDelay = `${i * 0.05}s`; });
+                } else {
+                    controlCenter.classList.remove("active");
+                    dockTrigger.innerHTML = `<i class="fa-solid fa-compass-drafting"></i> NAVIGATE`;
+                    dockTrigger.style.boxShadow = "0 4px 15px rgba(212,175,55,0.4)";
+                    overlayItems.forEach(item => { item.style.transitionDelay = "0s"; });
+                }
+            });
+            overlayItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    controlCenter.classList.remove("active");
+                    isOverlayOpen = false;
+                    dockTrigger.innerHTML = `<i class="fa-solid fa-compass-drafting"></i> NAVIGATE`;
+                });
+            });
+        });
+
+        // 4. 3D TILT ENGINE
+        const cards3D = document.querySelectorAll('.card-3d-wrapper');
+        cards3D.forEach(card => {
+            const innerCard = card.querySelector('.card-3d-inner');
+            card.addEventListener('mousemove', (e) => {
+                const rect    = card.getBoundingClientRect();
+                const x       = e.clientX - rect.left;
+                const y       = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -12;
+                const rotateY = ((x - centerX) / centerX) * 12;
+                innerCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                innerCard.style.transform  = `rotateX(0deg) rotateY(0deg)`;
+                innerCard.style.transition = 'transform 0.5s ease-out';
+            });
+            card.addEventListener('mouseenter', () => {
+                innerCard.style.transition = 'none';
+            });
+        });
+    </script>
+<script src="assets/sv-config.js"></script>
+<script src="assets/sv-public.js" defer></script>
+</body>
+</html>

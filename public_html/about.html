@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SMART VISION | About Us - The Visionaries</title>
+    <meta name="description" content="Learn about SMART VISION Engineering Consultants, founded in 2004 by Dr. Eng. Mohamed Osama Hassaan and Arch. Ahmed Amin — our story, values and 20+ years of engineering excellence in Egypt.">
+    <link rel="canonical" href="https://smartvisiongcs.com/about.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SMART VISION">
+    <meta property="og:title" content="SMART VISION | About Us - The Visionaries">
+    <meta property="og:description" content="Learn about SMART VISION Engineering Consultants, founded in 2004 by Dr. Eng. Mohamed Osama Hassaan and Arch. Ahmed Amin — our story, values and 20+ years of engineering excellence in Egypt.">
+    <meta property="og:url" content="https://smartvisiongcs.com/about.html">
+    <meta name="twitter:card" content="summary">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-pure-black: #000000;
+            --bg-rich-dark: #0A0A0A;
+            --bg-glass: rgba(0, 0, 0, 0.75);
+            --bg-glass-card: rgba(255, 255, 255, 0.02);
+            --gold-primary: #D4AF37;
+            --gold-glow: #FFD54A;
+            --gold-hover: #E6C75A;
+            --gold-border: #C9A227;
+            --gold-alpha: rgba(212, 175, 55, 0.25);
+            --text-white: #FFFFFF;
+            --text-secondary: #CFCFCF;
+            --text-muted: #8F8F8F;
+            --grad-gold: linear-gradient(90deg, #8B6B15, #D4AF37, #FFD54A, #D4AF37, #8B6B15);
+            --shadow-gold-glow: 0 0 15px rgba(212,175,55,0.35), 0 0 30px rgba(212,175,55,0.15);
+            --glass-blur: blur(16px);
+            --font-main: 'Inter', sans-serif;
+            --transition-main: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%; background-color: var(--bg-pure-black); color: var(--text-white);
+            font-family: var(--font-main); overflow-x: hidden; scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-pure-black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-border); border-radius: 3px; }
+        html, body, h1, h2, h3, h4, .brand-logo, .nav-links a { font-family: var(--font-main) !important; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        p { overflow-wrap: break-word; word-wrap: break-word; }
+
+        .blueprint-grid {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(212,175,55,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.02) 1px, transparent 1px);
+            background-size: 50px 50px; pointer-events: none; z-index: 1;
+        }
+
+        /* =============================================
+           PRELOADER — LUXURY HEX
+           ============================================= */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100dvh;
+            background: var(--bg-pure-black); z-index: 99999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1), opacity 1s linear;
+            overflow: hidden;
+        }
+        #preloader::before {
+            content: ''; position: absolute; inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212,175,55,0.012) 2px, rgba(212,175,55,0.012) 4px);
+            pointer-events: none; z-index: 0;
+        }
+        #preloader::after {
+            content: ''; position: absolute; top: -40%; left: 0; width: 100%; height: 40%;
+            background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.04), transparent);
+            animation: scanBeam 3.5s ease-in-out infinite; pointer-events: none; z-index: 0;
+        }
+        @keyframes scanBeam { 0%{top:-40%} 100%{top:140%} }
+
+        .loader-stage { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+        .loader-hex-wrap { position: relative; width: 180px; height: 180px; display: flex; align-items: center; justify-content: center; }
+        .hex-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .hex-outline { fill: none; stroke: url(#hexGrad); stroke-width: 1.5; stroke-dasharray: 600; stroke-dashoffset: 600; animation: hexDraw 1.8s cubic-bezier(0.4,0,0.2,1) forwards 0.3s; }
+        .hex-inner { fill: none; stroke: rgba(212,175,55,0.12); stroke-width: 0.8; stroke-dasharray: 4 8; animation: rotateSlow 12s linear infinite; transform-origin: 90px 90px; }
+        @keyframes hexDraw { to { stroke-dashoffset: 0; } }
+        @keyframes rotateSlow { to { transform: rotate(360deg); } }
+
+        .loader-logo-img { width: 68px; height: 68px; object-fit: contain; position: relative; z-index: 3; animation: logoPulse 2.5s ease-in-out infinite alternate; filter: drop-shadow(0 0 10px rgba(212,175,55,0.6)); }
+        @keyframes logoPulse {
+            0%   { filter: drop-shadow(0 0 6px rgba(212,175,55,0.4)); opacity: 0.85; }
+            100% { filter: drop-shadow(0 0 20px rgba(255,213,74,0.9)); opacity: 1; }
+        }
+
+        .loader-progress-track { width: 220px; height: 1px; background: rgba(212,175,55,0.15); margin-top: 32px; position: relative; overflow: hidden; border-radius: 1px; }
+        .loader-progress-fill { height: 100%; background: var(--grad-gold); width: 0%; transition: width 0.1s ease; box-shadow: 0 0 8px rgba(255,213,74,0.8); }
+        .loader-progress-fill::after { content: ''; position: absolute; right: -10px; top: -4px; width: 20px; height: 9px; background: radial-gradient(ellipse, rgba(255,255,255,0.8) 0%, transparent 70%); border-radius: 50%; }
+
+        .loader-info { margin-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .loader-brand-text { font-size: 1.1rem; font-weight: 700; letter-spacing: 8px; text-transform: uppercase; color: var(--text-white); }
+        .loader-brand-text span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .loader-sub-row { display: flex; align-items: center; gap: 16px; }
+        .loader-divider { width: 30px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-border)); }
+        .loader-divider.right { background: linear-gradient(to left, transparent, var(--gold-border)); }
+        .loader-tagline { font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); }
+        .loader-percentage { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; color: var(--gold-primary); margin-top: 6px; }
+
+        .loader-corner { position: absolute; width: 50px; height: 50px; opacity: 0.35; }
+        .loader-corner.tl { top: 30px; left: 30px; border-top: 1px solid var(--gold-primary); border-left: 1px solid var(--gold-primary); }
+        .loader-corner.tr { top: 30px; right: 30px; border-top: 1px solid var(--gold-primary); border-right: 1px solid var(--gold-primary); }
+        .loader-corner.bl { bottom: 30px; left: 30px; border-bottom: 1px solid var(--gold-primary); border-left: 1px solid var(--gold-primary); }
+        .loader-corner.br { bottom: 30px; right: 30px; border-bottom: 1px solid var(--gold-primary); border-right: 1px solid var(--gold-primary); }
+
+        /* =============================================
+           HEADER WITH LOGO
+           ============================================= */
+        .header { position: fixed; top: 0; left: 0; width: 100%; padding: 22px 60px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; transition: var(--transition-main); }
+        .header.scrolled { padding: 12px 60px; background: var(--bg-glass); backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--gold-alpha); }
+
+        .brand-identity { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+        .header-logo-wrap { position: relative; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .header-logo-ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--gold-border); box-shadow: 0 0 10px rgba(212,175,55,0.2), inset 0 0 8px rgba(212,175,55,0.05); transition: var(--transition-main); }
+        .header-logo-ring::before { content: ''; position: absolute; inset: 3px; border-radius: 50%; border: 1px dashed rgba(212,175,55,0.25); animation: rotateSlow 18s linear infinite; }
+        .header-logo-img { width: 30px; height: 30px; object-fit: contain; position: relative; z-index: 2; filter: drop-shadow(0 0 4px rgba(212,175,55,0.4)); transition: var(--transition-main); }
+        .brand-identity:hover .header-logo-ring { box-shadow: var(--shadow-gold-glow); border-color: var(--gold-glow); }
+        .brand-identity:hover .header-logo-img { filter: drop-shadow(0 0 10px rgba(255,213,74,0.7)); transform: scale(1.05); }
+        .brand-separator { width: 1px; height: 28px; background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.4), transparent); }
+        .brand-logo { font-size: 1.45rem; font-weight: 900; letter-spacing: 3px; color: var(--text-white); line-height: 1; white-space: nowrap; }
+        .brand-logo span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .brand-logo-sub { font-size: 0.52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); margin-top: 3px; font-weight: 400; }
+
+        .nav-links { display: flex; gap: 35px; }
+        .nav-links a { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary); position: relative; padding: 10px 0; }
+        .nav-links a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--grad-gold); transition: var(--transition-main); }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-hover); text-shadow: 0 0 8px rgba(255,213,74,0.3); }
+        .nav-links a:hover::before, .nav-links a.active::before { width: 100%; }
+
+        /* =============================================
+           MOBILE DOCK
+           ============================================= */
+        .mobile-control-dock { display: none; position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%) translateY(100px); width: 90%; max-width: 400px; background: rgba(10,10,10,0.85); backdrop-filter: blur(20px); border: 1px solid rgba(212,175,55,0.4); border-radius: 40px; padding: 9px 20px; justify-content: space-between; align-items: center; z-index: 10000; box-shadow: var(--shadow-gold-glow); opacity: 0; transition: transform 1s cubic-bezier(0.16,1,0.3,1), opacity 1s ease; }
+        .mobile-control-dock.visible { transform: translateX(-50%) translateY(0); opacity: 1; }
+        .dock-brand-wrap { display: flex; align-items: center; gap: 9px; }
+        .dock-logo-mini { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(212,175,55,0.5); display: flex; align-items: center; justify-content: center; background: rgba(212,175,55,0.05); flex-shrink: 0; }
+        .dock-logo-mini img { width: 18px; height: 18px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(212,175,55,0.5)); }
+        .dock-brand { font-size: 0.85rem; font-weight: 700; color: var(--text-white); letter-spacing: 1px; }
+        .dock-brand span { color: var(--gold-primary); }
+        .dock-trigger-btn { background: var(--grad-gold); border: none; padding: 10px 20px; border-radius: 30px; font-family: var(--font-main); font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(212,175,55,0.4); transition: var(--transition-main); white-space: nowrap; }
+
+        .mobile-nav-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100dvh; background: rgba(0,0,0,0.97); backdrop-filter: blur(30px); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 40px; opacity: 0; visibility: hidden; transition: opacity 0.5s ease, visibility 0.5s ease; }
+        .mobile-nav-overlay.active { opacity: 1; visibility: visible; }
+        .overlay-close-btn { position: absolute; top: 28px; right: 28px; width: 44px; height: 44px; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.4); border-radius: 50%; color: var(--gold-primary); font-size: 1.1rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: background 0.3s ease, transform 0.4s ease; }
+        .overlay-close-btn:hover { background: var(--gold-primary); color: #000; transform: rotate(90deg); }
+        .overlay-nav-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; width: 85%; max-width: 340px; text-align: center; }
+        .overlay-nav-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.15); padding: 22px 15px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; transform: translateY(24px); transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.3s ease, background 0.3s ease; color: var(--text-secondary); }
+        .mobile-nav-overlay.active .overlay-nav-item { opacity: 1; transform: translateY(0); }
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(1){transition-delay:0.05s}
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(2){transition-delay:0.10s}
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(3){transition-delay:0.15s}
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(4){transition-delay:0.20s}
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(5){transition-delay:0.25s}
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(6){transition-delay:0.30s}
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(7){transition-delay:0.35s}
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(8){transition-delay:0.40s}
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(9){transition-delay:0.45s}
+        .overlay-nav-item:hover { border-color: var(--gold-primary); background: rgba(212,175,55,0.07); }
+        .overlay-nav-item i { font-size: 1.3rem; color: var(--gold-primary); }
+        .overlay-nav-item span { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+        .overlay-nav-item.current { border-color: var(--gold-primary); background: rgba(212,175,55,0.06); }
+        .overlay-nav-item.current span { color: var(--gold-primary); }
+
+        /* =============================================
+           PAGE SECTIONS
+           ============================================= */
+        .page-hero { position: relative; height: 60vh; width: 100%; display: flex; align-items: flex-end; padding: 80px 8%; background: var(--bg-rich-dark); overflow: hidden; z-index: 2; border-bottom: 1px solid var(--gold-alpha); }
+        .page-hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop') center/cover no-repeat; background-attachment: fixed; filter: brightness(0.3) grayscale(0.6); z-index: 1; }
+        .page-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, #000000 10%, transparent 100%); z-index: 2; }
+        .page-hero-content { position: relative; z-index: 3; max-width: 800px; transform: translateY(30px); opacity: 0; animation: fadeInUp 1s forwards 1.2s; }
+        .subtitle { color: var(--gold-primary); font-size: 0.85rem; letter-spacing: 5px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+        .page-title { font-size: clamp(2.2rem,4vw,4rem); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; line-height: 1.2; }
+        .page-title span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .our-story { position: relative; padding: 120px 8%; z-index: 2; background: var(--bg-pure-black); }
+        .story-container { display: flex; align-items: center; gap: 60px; max-width: 1400px; margin: 0 auto; }
+        .story-text-col { flex: 1; text-align: justify; }
+        .story-text-col h2 { font-size: 2.2rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; text-align: left; }
+        .story-text-col p { color: var(--text-secondary); line-height: 1.8; font-size: 1rem; margin-bottom: 20px; font-weight: 300; }
+        .story-img-col { flex: 1; position: relative; width: 100%; }
+        .story-img-wrapper { position: relative; padding: 20px; border: 1px solid var(--gold-alpha); z-index: 2; width: 100%; }
+        .story-img-wrapper::before { content: ''; position: absolute; top: -15px; right: -15px; width: 100px; height: 100px; border-top: 3px solid var(--gold-primary); border-right: 3px solid var(--gold-primary); transition: var(--transition-main); }
+        .story-img-wrapper::after  { content: ''; position: absolute; bottom: -15px; left: -15px; width: 100px; height: 100px; border-bottom: 3px solid var(--gold-primary); border-left: 3px solid var(--gold-primary); transition: var(--transition-main); }
+        .story-img-wrapper img { width: 100%; height: auto; display: block; object-fit: cover; filter: grayscale(20%); transition: var(--transition-main); }
+        .story-img-wrapper:hover img { filter: grayscale(0%); transform: scale(1.02); box-shadow: var(--shadow-gold-glow); }
+        .story-img-wrapper:hover::before { top: -25px; right: -25px; }
+        .story-img-wrapper:hover::after  { bottom: -25px; left: -25px; }
+
+        /* =============================================
+           CEO MESSAGE — FIXED SIGNATURE
+           ============================================= */
+        .ceo-message-section { position: relative; padding: 120px 8%; background: var(--bg-rich-dark); border-top: 1px solid var(--gold-alpha); border-bottom: 1px solid var(--gold-alpha); z-index: 2; overflow: hidden; }
+        .quote-watermark { position: absolute; top: -5%; left: 5%; font-size: 25rem; color: var(--gold-primary); opacity: 0.03; line-height: 1; user-select: none; z-index: 1; }
+        .ceo-container { display: flex; align-items: center; gap: 0; max-width: 1250px; margin: 0 auto; position: relative; z-index: 2; }
+        .ceo-img-box { flex: 0 0 400px; position: relative; width: 100%; }
+        .ceo-img-box img { width: 100%; height: 100%; display: block; object-fit: cover; border: 1px solid var(--gold-border); box-shadow: 20px 20px 0px rgba(212,175,55,0.1); }
+        .ceo-text-box { flex: 1; background: var(--bg-pure-black); padding: 60px 80px; border: 1px solid rgba(212,175,55,0.15); border-left: none; display: flex; flex-direction: column; justify-content: center; margin-top: 40px; margin-bottom: -40px; box-shadow: -10px 0 30px rgba(0,0,0,0.5); }
+        .ceo-text-box h3 { font-size: 1.8rem; color: var(--gold-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+        .ceo-text-box h4 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 30px; }
+        .ceo-text-box p { font-size: 1.05rem; line-height: 1.9; color: var(--text-secondary); margin-bottom: 40px; border-left: 2px solid var(--gold-primary); padding-left: 20px; text-align: justify; text-justify: inter-word; }
+
+        /* SIGNATURE */
+        .signature {
+            font-family: 'Great Vibes', cursive !important;
+            font-size: 3rem;
+            color: var(--text-white);
+            opacity: 0.8;
+        }
+
+        /* =============================================
+           PHILOSOPHY
+           ============================================= */
+        .philosophy-section { padding: 120px 8%; background: var(--bg-pure-black); position: relative; z-index: 2; }
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-header h2 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
+        .section-header h2 span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-header p { color: var(--text-muted); }
+
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; }
+        .value-card { background: var(--bg-glass-card); border: 1px solid rgba(212,175,55,0.1); padding: 50px 40px; text-align: center; border-radius: 4px; transition: var(--transition-main); position: relative; overflow: hidden; }
+        .value-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--grad-gold); transform: scaleX(0); transform-origin: left; transition: var(--transition-main); }
+        .value-card:hover { transform: translateY(-10px); border-color: var(--gold-alpha); box-shadow: var(--shadow-gold-glow); background: rgba(255,255,255,0.05); }
+        .value-card:hover::before { transform: scaleX(1); }
+        .value-icon { font-size: 2.5rem; color: var(--gold-primary); margin-bottom: 25px; }
+        .value-title { font-size: 1.3rem; margin-bottom: 15px; letter-spacing: 1px; color: var(--text-white); text-transform: uppercase; }
+        .value-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; text-align: justify; text-align-last: center; }
+
+        /* =============================================
+           FOOTER
+           ============================================= */
+        .executive-footer { background: #030303; border-top: 1px solid rgba(212,175,55,0.2); padding: 80px 8% 40px 8%; position: relative; z-index: 2; }
+        .footer-matrix { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 50px; margin-bottom: 60px; }
+        .footer-brand-column h3 { font-size: 1.5rem; margin-bottom: 20px; letter-spacing: 2px; }
+        .footer-brand-column h3 span { color: var(--gold-primary); }
+        .footer-brand-column p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+        .footer-links-column h4 { color: var(--gold-primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
+        .footer-links-column ul { display: flex; flex-direction: column; gap: 15px; }
+        .footer-links-column a { color: var(--text-secondary); font-size: 0.85rem; transition: var(--transition-main); }
+        .footer-links-column a:hover { color: var(--gold-glow); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-bottom p { color: var(--text-muted); font-size: 0.8rem; }
+        .footer-socials { display: flex; gap: 20px; }
+        .footer-socials a { width: 40px; height: 40px; border: 1px solid rgba(212,175,55,0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--text-secondary); transition: var(--transition-main); }
+        .footer-socials a:hover { border-color: var(--gold-primary); color: var(--bg-pure-black); background: var(--grad-gold); box-shadow: var(--shadow-gold-glow); }
+
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* =============================================
+           RESPONSIVE
+           ============================================= */
+        @media (max-width: 1024px) {
+            .story-container { flex-direction: column; gap: 40px; }
+            .story-text-col h2 { text-align: center; }
+            .ceo-container { flex-direction: column; align-items: center; gap: 30px; }
+            .ceo-img-box { flex: none; width: 100%; max-width: 450px; aspect-ratio: 4/5; height: auto; }
+            .ceo-img-box img { box-shadow: 10px 10px 0px rgba(212,175,55,0.1); }
+            .ceo-text-box {
+                margin-top: 0; margin-bottom: 0;
+                padding: 40px 30px;
+                border-left: 1px solid rgba(212,175,55,0.15);
+                border-top: none;
+                text-align: center;
+                width: 100%;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            }
+            .ceo-text-box p { border-left: none; border-top: 1px solid var(--gold-primary); padding-left: 0; padding-top: 20px; text-align: justify; }
+            .signature-wrap { justify-content: center; }
+        }
+        @media (max-width: 900px) {
+            .header { padding: 18px 24px; }
+            .header.scrolled { padding: 12px 24px; }
+            .nav-links { display: none; }
+            .mobile-control-dock { display: flex; }
+            .header-logo-wrap { width: 40px; height: 40px; }
+            .header-logo-img { width: 26px; height: 26px; }
+            .brand-logo { font-size: 1.2rem; letter-spacing: 2px; }
+            .brand-logo-sub { display: none; }
+        }
+        @media (max-width: 480px) {
+            .header { padding: 15px 20px; }
+            .brand-separator { display: none; }
+            .page-hero { padding: 40px 6%; height: 50vh; align-items: center; justify-content: center; text-align: center; }
+            .page-title { font-size: 1.8rem; }
+            .our-story, .ceo-message-section, .philosophy-section { padding: 70px 6%; }
+            .story-text-col h2 { font-size: 1.7rem; }
+            .story-img-wrapper { padding: 10px; }
+            .ceo-img-box { max-width: 100%; aspect-ratio: 1/1; }
+            .ceo-text-box { padding: 30px 18px; }
+            .ceo-text-box h3 { font-size: 1.2rem; letter-spacing: 1px; }
+            .ceo-text-box h4 { font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 20px; }
+            .ceo-text-box p { font-size: 0.92rem; line-height: 1.75; margin-bottom: 28px; }
+            .signature-svg { width: 200px; height: 55px; }
+            .signature-name { font-size: 1.8rem; }
+            .section-header h2 { font-size: 1.9rem; }
+            .values-grid { gap: 25px; }
+            .value-card { padding: 40px 20px; }
+            .footer-matrix { gap: 35px; }
+            .executive-footer { padding: 60px 6% 30px 6%; }
+            .footer-bottom { justify-content: center; text-align: center; flex-direction: column-reverse; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="blueprint-grid"></div>
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="loader-corner tl"></div>
+    <div class="loader-corner tr"></div>
+    <div class="loader-corner bl"></div>
+    <div class="loader-corner br"></div>
+    <div class="loader-stage">
+        <div class="loader-hex-wrap">
+            <svg class="hex-svg" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%"   stop-color="#8B6B15"/>
+                        <stop offset="40%"  stop-color="#D4AF37"/>
+                        <stop offset="60%"  stop-color="#FFD54A"/>
+                        <stop offset="100%" stop-color="#8B6B15"/>
+                    </linearGradient>
+                </defs>
+                <polygon class="hex-outline" points="90,10 164,52 164,128 90,170 16,128 16,52"/>
+                <polygon class="hex-inner"   points="90,28 148,62 148,118 90,152 32,118 32,62"/>
+            </svg>
+            <img class="loader-logo-img" src="tled_sign-removebg-preview.png" alt="Smart Vision Logo">
+        </div>
+        <div class="loader-progress-track">
+            <div class="loader-progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="loader-info">
+            <div class="loader-brand-text">SMART <span>VISION</span></div>
+            <div class="loader-sub-row">
+                <div class="loader-divider"></div>
+                <div class="loader-tagline">Engineering Consultancy</div>
+                <div class="loader-divider right"></div>
+            </div>
+            <div class="loader-percentage" id="percentage-counter">0%</div>
+        </div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="main-header">
+    <a class="brand-identity" href="index.html">
+        <div class="header-logo-wrap">
+            <div class="header-logo-ring"></div>
+            <img class="header-logo-img" src="tled_sign-removebg-preview.png" alt="Smart Vision Logo">
+        </div>
+        <div class="brand-separator"></div>
+        <div>
+            <div class="brand-logo">SMART <span>VISION</span></div>
+            <div class="brand-logo-sub">Engineering Consultancy</div>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="partnerships.html">Partnerships</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="career.html">Career</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</header>
+
+<!-- MOBILE DOCK -->
+<nav class="mobile-control-dock" id="mobile-dock">
+    <div class="dock-brand-wrap">
+        <div class="dock-logo-mini">
+            <img src="tled_sign-removebg-preview.png" alt="Logo">
+        </div>
+        <div class="dock-brand">SMART <span>VISION</span></div>
+    </div>
+    <button class="dock-trigger-btn" id="dock-trigger">
+        <i class="fa-solid fa-compass-drafting"></i> NAVIGATE
+    </button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="overlay-close-btn" id="overlay-close">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="overlay-nav-grid">
+        <a href="index.html"        class="overlay-nav-item"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="about.html"        class="overlay-nav-item current"><i class="fa-solid fa-building-user"></i><span>About</span></a>
+        <a href="services.html"     class="overlay-nav-item"><i class="fa-solid fa-trowel-bricks"></i><span>Services</span></a>
+        <a href="projects.html"     class="overlay-nav-item"><i class="fa-solid fa-city"></i><span>Projects</span></a>
+        <a href="partnerships.html" class="overlay-nav-item"><i class="fa-solid fa-handshake-angle"></i><span>Partnerships</span></a>
+        <a href="team.html"         class="overlay-nav-item"><i class="fa-solid fa-users-gear"></i><span>Team</span></a>
+        <a href="career.html"       class="overlay-nav-item"><i class="fa-solid fa-briefcase"></i><span>Career</span></a>
+        <a href="news.html"         class="overlay-nav-item"><i class="fa-solid fa-newspaper"></i><span>News</span></a>
+        <a href="contact.html"      class="overlay-nav-item" style="grid-column:span 2"><i class="fa-solid fa-envelope"></i><span>Contact Hub</span></a>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <span class="subtitle">Discover The Legacy</span>
+        <h1 class="page-title">The <span>Visionaries</span> Behind The Skyline</h1>
+    </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="our-story">
+    <div class="story-container">
+        <div class="story-text-col">
+            <span class="subtitle">Our Foundation</span>
+            <h2>Engineering With <span style="background:var(--grad-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Purpose</span></h2>
+            <p>Since our inception, SMART VISION has been driven by a singular obsession: to push the boundaries of structural engineering and architectural aesthetics. We do not just construct buildings; we engineer enduring landmarks that stand as a testament to human ingenuity.</p>
+            <p>Our journey began with a clear vision — to merge ultra-luxury design principles with unyielding structural integrity. Today, we are recognized globally for executing complex structural operations that redefine modern cityscapes.</p>
+        </div>
+        <div class="story-img-col">
+            <div class="story-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Smart Vision Headquarters Building">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CEO MESSAGE -->
+<section class="ceo-message-section">
+    <div class="quote-watermark">"</div>
+    <div class="ceo-container">
+        <div class="ceo-img-box">
+            <img src="WhatsApp Image 2026-05-24 at 8.21.51 PM.jpeg" alt="CEO of Smart Vision">
+        </div>
+        <div class="ceo-text-box">
+            <h3>Dr.Eng: Mohamed Osama Hassaan</h3>
+            <h4>Chief Executive Officer</h4>
+            <p>"Smart Vision Engineering Consultants is a consulting company which specializes in geotechnical engineering, civil engineering, Architectural engineering and structural designs of deep and complex foundation systems, retention and shoring systems, and soil stabilizations. The company was Founded in 2004 by Dr.eng. Mohamed Osama and ARCH. Ahmed Amin, the company which is listed on GAFI - General Authority For Investment" was the result of our vision and hard work for 22 years as consultant for many Egyptian developers and as consultant for many of local and individual projects to create self-sufficient and well integrated communities. We are committed to engineering excellence and create time and cost-effective solutions for the different challenges our clients face. We achieve this by using innovations and modern technology to get accurate results, data and relevant analysis to provide innovative, and cost effective, designs and solutions. Our plan is to be an effective partner in Egyptian Development market and Construction industry for the medium and large communities."</p>
+
+            <div class="signature">Mohamed Osama Hassaan</div>
+        </div>
+    </div>
+</section>
+
+<!-- CORE PHILOSOPHY -->
+<section class="philosophy-section">
+    <div class="section-header">
+        <span class="subtitle">The Blueprint</span>
+        <h2>Core <span>Principles</span></h2>
+        <p>The fundamental pillars that govern our engineering excellence.</p>
+    </div>
+    <div class="values-grid">
+        <div class="value-card">
+            <i class="fa-solid fa-lightbulb value-icon"></i>
+            <h3 class="value-title">Innovation</h3>
+            <p class="value-desc">We strive to positively impress our clients by delivering creative and effective solutions. We believe that everything worth doing — from customer service to strategy and design — should be driven by innovation, creating value and achieving excellence in every project.</p>
+        </div>
+        <div class="value-card">
+            <i class="fa-solid fa-scale-balanced value-icon"></i>
+            <h3 class="value-title">Integrity</h3>
+            <p class="value-desc">We believe in representing facts and capabilities with honesty and transparency. Integrity means maintaining the highest ethical and professional standards in every action, decision, and relationship.</p>
+        </div>
+        <div class="value-card">
+            <i class="fa-solid fa-book-open-reader value-icon"></i>
+            <h3 class="value-title">Continuous Knowledge</h3>
+            <p class="value-desc">We pursue continuous growth and learning. At Smart Vision, we never stop developing our knowledge and capabilities, always seeking new challenges and opportunities to improve. We believe in pushing boundaries and expanding what we think is possible to achieve.</p>
+        </div>
+        <div class="value-card">
+            <i class="fa-solid fa-fire-flame-curved value-icon"></i>
+            <h3 class="value-title">Passion</h3>
+            <p class="value-desc">We are passionate and determined in everything we do. Our growth is driven by our dedication to the industry, our commitment to our clients, and the strong culture of our company. We believe our actions create meaningful impact and drive lasting success.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="executive-footer">
+    <div class="footer-matrix">
+        <div class="footer-brand-column">
+            <h3>SMART <span>VISION</span></h3>
+            <p>Luxury Engineering Operations Hub — Engineering Architectural, Structural &amp; MEP Excellence Since Inception.</p>
+        </div>
+        <div class="footer-links-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Our Services</a></li>
+                <li><a href="projects.html">Portfolio</a></li>
+                <li><a href="news.html">News &amp; Updates</a></li>
+            </ul>
+        </div>
+        <div class="footer-links-column">
+            <h4>Connect</h4>
+            <div class="footer-socials" style="margin-top:0;">
+                <a href="https://wa.me/201021501250" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-osama-hassaan-354ba425" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/MohamedOsama.SV" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 SMART VISION Engineering Operations. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // --- Preloader (runs immediately) ---
+    (function() {
+        var counterEl   = document.getElementById("percentage-counter");
+        var progressBar = document.getElementById("progress-fill");
+        var preloader   = document.getElementById("preloader");
+        var mobileDock  = document.getElementById("mobile-dock");
+        var current = 0;
+        var loaderInterval = setInterval(function() {
+            current += Math.floor(Math.random() * 5) + 2;
+            if (current >= 100) {
+                current = 100;
+                counterEl.innerText     = "100%";
+                progressBar.style.width = "100%";
+                clearInterval(loaderInterval);
+                setTimeout(function() {
+                    preloader.style.opacity   = "0";
+                    preloader.style.transform = "translateY(-100dvh)";
+                    setTimeout(function() {
+                        preloader.style.display = "none";
+                        mobileDock.classList.add("visible");
+                    }, 1200);
+                }, 500);
+            } else {
+                counterEl.innerText     = current + "%";
+                progressBar.style.width = current + "%";
+            }
+        }, 40);
+    })();
+
+    // --- Header scroll ---
+    window.addEventListener("scroll", function() {
+        var h = document.getElementById("main-header");
+        if (h) h.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // --- Mobile overlay ---
+    document.addEventListener("DOMContentLoaded", function() {
+        var dockBtn  = document.getElementById("dock-trigger");
+        var overlay  = document.getElementById("mobile-nav-overlay");
+        var closeBtn = document.getElementById("overlay-close");
+
+        function openOverlay() {
+            overlay.classList.add("active");
+            document.body.style.overflow = "hidden";
+            dockBtn.innerHTML = '<i class="fa-solid fa-xmark"></i> CLOSE';
+            dockBtn.style.boxShadow = "0 0 25px #FFD54A";
+        }
+        function closeOverlay() {
+            overlay.classList.remove("active");
+            document.body.style.overflow = "";
+            dockBtn.innerHTML = '<i class="fa-solid fa-compass-drafting"></i> NAVIGATE';
+            dockBtn.style.boxShadow = "0 4px 15px rgba(212,175,55,0.4)";
+        }
+        dockBtn.addEventListener("click", function() {
+            overlay.classList.contains("active") ? closeOverlay() : openOverlay();
+        });
+        closeBtn.addEventListener("click", closeOverlay);
+        overlay.querySelectorAll(".overlay-nav-item").forEach(function(item) {
+            item.addEventListener("click", closeOverlay);
+        });
+    });
+</script>
+<script src="assets/sv-config.js"></script>
+<script src="assets/sv-public.js" defer></script>
+</body>
+</html>

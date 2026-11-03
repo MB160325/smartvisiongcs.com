@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>SMART VISION | Staff Login</title><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>:root{--bg:#000;--rich:#0A0A0A;--gold:#D4AF37;--glow:#FFD54A;--bd:#C9A227;--ga:rgba(212,175,55,.25);--mut:#8F8F8F;--sec:#CFCFCF;--grad:linear-gradient(90deg,#8B6B15,#D4AF37,#FFD54A,#D4AF37,#8B6B15)}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:#fff;font-family:Inter,sans-serif;min-height:100dvh}a{color:var(--gold);text-decoration:none}.brand{font-weight:900;letter-spacing:3px}.brand span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}input,select,textarea{width:100%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.12);padding:13px 15px;border-radius:8px;color:#fff;font:inherit;outline:0;margin-bottom:14px}input:focus,select:focus,textarea:focus{border-color:var(--gold)}select option{background:#0a0a0a}label{display:block;color:var(--gold);font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;font-weight:600}.btn{background:var(--grad);color:#000;border:0;border-radius:8px;padding:13px 22px;font:700 .8rem Inter,sans-serif;letter-spacing:1.5px;cursor:pointer}.btn.o{background:none;border:1px solid var(--bd);color:var(--gold)}.btn.d{background:none;border:1px solid #a33;color:#ff8a80;padding:7px 12px}.btn:disabled{opacity:.6}
+body{display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at 50% 0,rgba(212,175,55,.12),transparent 60%),#000}
+.card{width:100%;max-width:430px;background:rgba(255,255,255,.03);border:1px solid var(--ga);border-radius:18px;padding:42px 36px;position:relative;overflow:hidden;box-shadow:0 0 40px rgba(212,175,55,.08)}.card:before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--grad)}
+.logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:6px}.logo img{width:40px}.logo .brand{font-size:1.5rem}.tag{text-align:center;color:var(--mut);font-size:.65rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:28px}
+h1{font-size:1.05rem;text-align:center;margin-bottom:22px;letter-spacing:1px}.btn{width:100%}.msg{margin-top:14px;text-align:center;font-size:.85rem;min-height:1.2em}.lnk{display:block;text-align:center;margin-top:16px;font-size:.78rem;color:var(--mut);cursor:pointer}.lnk:hover{color:var(--gold)}.back{display:block;text-align:center;margin-top:22px;font-size:.75rem;color:var(--mut)}</style></head>
+<body><div class="card"><div class="logo"><img src="tled_sign-removebg-preview.png" alt="" onerror="this.remove()"><div class="brand">SMART <span>VISION</span></div></div><div class="tag">Staff Portal · بوابة الموظفين</div>
+<h1 id="ttl">Sign in · تسجيل الدخول</h1>
+<form id="f"><div id="fe"><label>Email · البريد الإلكتروني</label><input id="em" type="email" required autocomplete="username"></div>
+<div id="fp"><label>Password · كلمة المرور</label><input id="pw" type="password" required minlength="6" autocomplete="current-password"></div>
+<button class="btn" id="go">Sign in · دخول</button></form><a class="lnk" id="fg">Forgot password? · نسيت كلمة المرور؟</a><div class="msg" id="m"></div>
+<a class="back" href="index.html"><i class="fa-solid fa-arrow-left-long"></i> smartvisiongcs.com</a></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script><script src="assets/sv-config.js"></script>
+<script>
+var C=window.SV,sb=supabase.createClient(C.url,C.key),$=function(i){return document.getElementById(i)},mode='login';
+function msg(t,ok){$('m').style.color=ok?'#7bd88f':'#ff8a80';$('m').textContent=t}
+async function route(){var u=(await sb.auth.getUser()).data.user;if(!u)return;
+  var p=(await sb.from('profiles').select('role').eq('id',u.id).maybeSingle()).data;
+  if(p&&(p.role==='admin'||p.role==='staff'))location.href='admin.html';
+  else{await sb.auth.signOut();msg('Your account is awaiting approval. · حسابك بانتظار موافقة الإدارة.')}}
+sb.auth.onAuthStateChange(function(e){if(e==='PASSWORD_RECOVERY'){mode='reset';$('fe').style.display='none';$('fg').style.display='none';$('ttl').textContent='New password · كلمة مرور جديدة';$('go').textContent='Save · حفظ';$('pw').autocomplete='new-password'}});
+$('f').onsubmit=async function(e){e.preventDefault();$('go').disabled=true;msg('');
+  if(mode==='reset'){var r=await sb.auth.updateUser({password:$('pw').value});$('go').disabled=false;if(r.error)return msg(r.error.message);msg('Updated ✓',1);return route()}
+  var r=await sb.auth.signInWithPassword({email:$('em').value.trim(),password:$('pw').value});$('go').disabled=false;
+  if(r.error)return msg('Invalid email or password. · بيانات الدخول غير صحيحة.');route()};
+$('fg').onclick=async function(){var v=$('em').value.trim();if(!v)return msg('Enter your email first. · أدخل بريدك أولاً.');
+  var r=await sb.auth.resetPasswordForEmail(v,{redirectTo:location.origin+location.pathname});msg(r.error?r.error.message:'Reset link sent. · تم إرسال رابط الاستعادة.',!r.error)};
+route();
+</script></body></html>

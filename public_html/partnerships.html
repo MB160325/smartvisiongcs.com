@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SMART VISION | Strategic Partnerships</title>
+    <meta name="description" content="SMART VISION partners with leading Egyptian developers including Palm Hills, Orascom Development, Majra, Country Homes and more to deliver integrated engineering solutions.">
+    <link rel="canonical" href="https://smartvisiongcs.com/partnerships.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SMART VISION">
+    <meta property="og:title" content="SMART VISION | Strategic Partnerships">
+    <meta property="og:description" content="SMART VISION partners with leading Egyptian developers including Palm Hills, Orascom Development, Majra, Country Homes and more to deliver integrated engineering solutions.">
+    <meta property="og:url" content="https://smartvisiongcs.com/partnerships.html">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN SYSTEM
+           ========================================================================== */
+        :root {
+            --bg-pure-black: #000000;
+            --bg-rich-dark: #0A0A0A;
+            --bg-glass: rgba(0, 0, 0, 0.75);
+            --bg-glass-card: rgba(255, 255, 255, 0.03);
+            --gold-primary: #D4AF37;
+            --gold-glow: #FFD54A;
+            --gold-hover: #E6C75A;
+            --gold-border: #C9A227;
+            --gold-alpha: rgba(212, 175, 55, 0.25);
+            --text-white: #FFFFFF;
+            --text-secondary: #CFCFCF;
+            --text-muted: #8F8F8F;
+            --grad-gold: linear-gradient(90deg, #8B6B15, #D4AF37, #FFD54A, #D4AF37, #8B6B15);
+            --grad-luxury-dark: linear-gradient(180deg, #000000, #0A0A0A, #000000);
+            --shadow-gold-glow: 0 0 15px rgba(212,175,55,0.35), 0 0 30px rgba(212,175,55,0.15);
+            --shadow-btn-hover: 0 0 20px #D4AF37, 0 0 40px rgba(212,175,55,0.5);
+            --glass-blur: blur(16px);
+            --font-main: 'Inter', sans-serif;
+            --transition-main: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* ==========================================================================
+           2. RESET & BASE
+           ========================================================================== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%; background-color: var(--bg-pure-black); color: var(--text-white);
+            font-family: var(--font-main) !important; overflow-x: hidden; scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-pure-black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-border); border-radius: 3px; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        html, body, h1, h2, h3, h4, .brand-logo, .nav-links a, .dock-item { font-family: var(--font-main) !important; }
+
+        .blueprint-grid {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image:
+                linear-gradient(rgba(212, 175, 55, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px; pointer-events: none; z-index: 1;
+        }
+
+        /* ==========================================================================
+           3. PRELOADER — LUXURY HEX WITH ICON
+           ========================================================================== */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100dvh;
+            background: var(--bg-pure-black); z-index: 99999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1), opacity 1s linear;
+            overflow: hidden;
+        }
+        #preloader::before {
+            content: ''; position: absolute; inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212,175,55,0.012) 2px, rgba(212,175,55,0.012) 4px);
+            pointer-events: none; z-index: 0;
+        }
+        #preloader::after {
+            content: ''; position: absolute; top: -40%; left: 0; width: 100%; height: 40%;
+            background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.04), transparent);
+            animation: scanBeam 3.5s ease-in-out infinite; pointer-events: none; z-index: 0;
+        }
+        @keyframes scanBeam { 0%{top:-40%} 100%{top:140%} }
+
+        .loader-stage {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .loader-hex-wrap {
+            position: relative; width: 180px; height: 180px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hex-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .hex-outline {
+            fill: none; stroke: url(#hexGrad); stroke-width: 1.5;
+            stroke-dasharray: 600; stroke-dashoffset: 600;
+            animation: hexDraw 1.8s cubic-bezier(0.4,0,0.2,1) forwards 0.3s;
+        }
+        .hex-inner {
+            fill: none; stroke: rgba(212,175,55,0.12); stroke-width: 0.8;
+            stroke-dasharray: 4 8; animation: rotateSlow 12s linear infinite;
+            transform-origin: 90px 90px;
+        }
+        @keyframes hexDraw { to { stroke-dashoffset: 0; } }
+        @keyframes rotateSlow { to { transform: rotate(360deg); } }
+
+        /* Icon container replaces the logo image */
+        .loader-icon-wrap {
+            position: relative; z-index: 3;
+            width: 72px; height: 72px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            background: rgba(212,175,55,0.06);
+            border: 1px solid rgba(212,175,55,0.25);
+            animation: iconPulse 2.5s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px rgba(212,175,55,0.15), inset 0 0 16px rgba(212,175,55,0.05);
+        }
+        .loader-icon-wrap i {
+            font-size: 1.9rem;
+            background: var(--grad-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 6px rgba(255,213,74,0.5));
+        }
+        @keyframes iconPulse {
+            0%   { box-shadow: 0 0 10px rgba(212,175,55,0.15), inset 0 0 10px rgba(212,175,55,0.04); border-color: rgba(212,175,55,0.2); }
+            100% { box-shadow: 0 0 30px rgba(212,175,55,0.35), inset 0 0 20px rgba(212,175,55,0.08); border-color: rgba(212,175,55,0.6); }
+        }
+
+        .loader-progress-track {
+            width: 220px; height: 1px; background: rgba(212,175,55,0.15);
+            margin-top: 32px; position: relative; overflow: hidden; border-radius: 1px;
+        }
+        .loader-progress-fill {
+            height: 100%; background: var(--grad-gold); width: 0%;
+            transition: width 0.1s ease; box-shadow: 0 0 8px rgba(255,213,74,0.8);
+        }
+        .loader-progress-fill::after {
+            content: ''; position: absolute; right: -10px; top: -4px;
+            width: 20px; height: 9px;
+            background: radial-gradient(ellipse, rgba(255,255,255,0.8) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .loader-info { margin-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .loader-brand-text { font-size: 1.1rem; font-weight: 700; letter-spacing: 8px; text-transform: uppercase; color: var(--text-white); }
+        .loader-brand-text span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .loader-sub-row { display: flex; align-items: center; gap: 16px; }
+        .loader-divider { width: 30px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-border)); }
+        .loader-divider.right { background: linear-gradient(to left, transparent, var(--gold-border)); }
+        .loader-tagline { font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); }
+        .loader-percentage { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; color: var(--gold-primary); margin-top: 6px; }
+
+        .loader-corner { position: absolute; width: 50px; height: 50px; opacity: 0.35; }
+        .loader-corner.tl { top: 30px; left: 30px; border-top: 1px solid var(--gold-primary); border-left: 1px solid var(--gold-primary); }
+        .loader-corner.tr { top: 30px; right: 30px; border-top: 1px solid var(--gold-primary); border-right: 1px solid var(--gold-primary); }
+        .loader-corner.bl { bottom: 30px; left: 30px; border-bottom: 1px solid var(--gold-primary); border-left: 1px solid var(--gold-primary); }
+        .loader-corner.br { bottom: 30px; right: 30px; border-bottom: 1px solid var(--gold-primary); border-right: 1px solid var(--gold-primary); }
+
+        /* ==========================================================================
+           4. HEADER WITH LOGO
+           ========================================================================== */
+        .header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 22px 60px; display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: var(--transition-main);
+        }
+        .header.scrolled {
+            padding: 12px 60px; background: var(--bg-glass);
+            backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--gold-alpha);
+        }
+
+        .brand-identity { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+
+        .header-logo-wrap {
+            position: relative; width: 46px; height: 46px;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .header-logo-ring {
+            position: absolute; inset: 0; border-radius: 50%;
+            border: 1px solid var(--gold-border);
+            box-shadow: 0 0 10px rgba(212,175,55,0.2), inset 0 0 8px rgba(212,175,55,0.05);
+            transition: var(--transition-main);
+        }
+        .header-logo-ring::before {
+            content: ''; position: absolute; inset: 3px; border-radius: 50%;
+            border: 1px dashed rgba(212,175,55,0.25);
+            animation: rotateSlow 18s linear infinite;
+        }
+        .header-logo-img {
+            width: 30px; height: 30px; object-fit: contain; position: relative; z-index: 2;
+            filter: drop-shadow(0 0 4px rgba(212,175,55,0.4)); transition: var(--transition-main);
+        }
+        .brand-identity:hover .header-logo-ring { box-shadow: var(--shadow-gold-glow); border-color: var(--gold-glow); }
+        .brand-identity:hover .header-logo-img { filter: drop-shadow(0 0 10px rgba(255,213,74,0.7)); transform: scale(1.05); }
+
+        .brand-separator { width: 1px; height: 28px; background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.4), transparent); }
+        .brand-logo { font-size: 1.45rem; font-weight: 900; letter-spacing: 3px; color: var(--text-white); line-height: 1; white-space: nowrap; }
+        .brand-logo span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .brand-logo-sub { font-size: 0.52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); margin-top: 3px; font-weight: 400; }
+
+        .nav-links { display: flex; gap: 35px; }
+        .nav-links a { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary); position: relative; padding: 10px 0; }
+        .nav-links a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--grad-gold); transition: var(--transition-main); }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-hover); text-shadow: 0 0 8px rgba(255,213,74,0.3); }
+        .nav-links a:hover::before, .nav-links a.active::before { width: 100%; }
+
+        /* ==========================================================================
+           5. MOBILE DOCK WITH LOGO
+           ========================================================================== */
+        .mobile-control-dock {
+            display: none; position: fixed; bottom: 25px; left: 50%;
+            transform: translateX(-50%) translateY(100px); width: 90%; max-width: 400px;
+            background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+            border: 1px solid rgba(212,175,55,0.4); border-radius: 40px;
+            padding: 9px 20px; justify-content: space-between; align-items: center;
+            z-index: 10000; box-shadow: var(--shadow-gold-glow); opacity: 0;
+            transition: transform 0.9s cubic-bezier(0.22,1,0.36,1), opacity 0.9s ease;
+        }
+        .mobile-control-dock.visible { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        .dock-brand-wrap { display: flex; align-items: center; gap: 9px; }
+        .dock-logo-mini {
+            width: 30px; height: 30px; border-radius: 50%;
+            border: 1px solid rgba(212,175,55,0.5);
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(212,175,55,0.05); flex-shrink: 0;
+        }
+        .dock-logo-mini img { width: 18px; height: 18px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(212,175,55,0.5)); }
+        .dock-brand { font-size: 0.85rem; font-weight: 700; color: var(--text-white); letter-spacing: 1px; }
+        .dock-brand span { color: var(--gold-primary); }
+
+        .dock-trigger-btn {
+            background: var(--grad-gold); border: none; padding: 10px 20px; border-radius: 30px;
+            font-family: var(--font-main); font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+            cursor: pointer; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.4); transition: var(--transition-main); white-space: nowrap;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100dvh;
+            background: rgba(0,0,0,0.97); backdrop-filter: blur(30px);
+            z-index: 9999; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; gap: 40px;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .mobile-nav-overlay.active { opacity: 1; visibility: visible; }
+
+        .overlay-close-btn {
+            position: absolute; top: 28px; right: 28px;
+            width: 44px; height: 44px;
+            background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.4);
+            border-radius: 50%; color: var(--gold-primary); font-size: 1.1rem; cursor: pointer;
+            display: flex; justify-content: center; align-items: center;
+            transition: background 0.3s ease, transform 0.4s ease;
+        }
+        .overlay-close-btn:hover { background: var(--gold-primary); color: #000; transform: rotate(90deg); }
+
+        .overlay-nav-grid {
+            display: grid; grid-template-columns: repeat(2,1fr);
+            gap: 16px; width: 85%; max-width: 340px; text-align: center;
+        }
+        .overlay-nav-item {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.15);
+            padding: 22px 15px; border-radius: 16px;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.3s ease, background 0.3s ease;
+            color: var(--text-secondary);
+        }
+        .mobile-nav-overlay.active .overlay-nav-item { opacity: 1; transform: translateY(0); }
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(1)  { transition-delay: 0.05s; }
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(2)  { transition-delay: 0.10s; }
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(3)  { transition-delay: 0.15s; }
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(4)  { transition-delay: 0.20s; }
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(5)  { transition-delay: 0.25s; }
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(6)  { transition-delay: 0.30s; }
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(7)  { transition-delay: 0.35s; }
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(8)  { transition-delay: 0.40s; }
+        .mobile-nav-overlay.active .overlay-nav-item:nth-child(9)  { transition-delay: 0.45s; }
+        .overlay-nav-item:hover { border-color: var(--gold-primary); background: rgba(212,175,55,0.07); }
+        .overlay-nav-item i { font-size: 1.3rem; color: var(--gold-primary); }
+        .overlay-nav-item span { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+        .overlay-nav-item.current { border-color: var(--gold-primary); background: rgba(212,175,55,0.06); }
+        .overlay-nav-item.current span { color: var(--gold-primary); }
+
+        /* ==========================================================================
+           6. HERO
+           ========================================================================== */
+        .page-hero {
+            position: relative; height: 60vh; width: 100%;
+            display: flex; align-items: flex-end; padding: 80px 8%;
+            background: var(--bg-pure-black); overflow: hidden; z-index: 2;
+            border-bottom: 1px solid var(--gold-alpha);
+        }
+        .page-hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1554469384-e58fac16e23a?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            background-attachment: fixed; filter: brightness(0.25) grayscale(0.6); z-index: 1;
+        }
+        .page-hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, var(--bg-pure-black) 5%, transparent 100%); z-index: 2;
+        }
+        .page-hero-content { position: relative; z-index: 3; max-width: 900px; transform: translateY(30px); opacity: 0; animation: fadeInUp 1s forwards 1.2s; }
+        .subtitle { color: var(--gold-primary); font-size: 0.85rem; letter-spacing: 5px; text-transform: uppercase; display: block; margin-bottom: 10px; font-weight: 600; }
+        .page-title { font-size: clamp(2.5rem, 4vw, 4rem); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; line-height: 1.2; font-weight: 900; }
+        .page-title span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* ==========================================================================
+           7. MARQUEE — LOGO STRIP
+           ========================================================================== */
+        .marquee-section {
+            position: relative; z-index: 2; background: var(--bg-rich-dark);
+            padding: 50px 0; border-bottom: 1px solid var(--gold-alpha); overflow: hidden;
+        }
+        .marquee-section::before, .marquee-section::after {
+            content: ''; position: absolute; top: 0; width: 18vw; height: 100%; z-index: 3; pointer-events: none;
+        }
+        .marquee-section::before { left: 0; background: linear-gradient(to right, var(--bg-rich-dark) 20%, transparent); }
+        .marquee-section::after  { right: 0; background: linear-gradient(to left,  var(--bg-rich-dark) 20%, transparent); }
+
+        .marquee-track {
+            display: flex; gap: 50px; width: max-content;
+            animation: scrollMarquee 38s linear infinite;
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        .brand-item {
+            flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .brand-item:hover { transform: translateY(-6px) scale(1.06); }
+
+        .logo-pill {
+            position: relative; width: 190px; height: 76px;
+            background: rgba(8,8,8,0.9); border: 1px solid rgba(212,175,55,0.18);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            overflow: hidden; transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .logo-pill::before {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 1px; background: var(--grad-gold); transition: left 0.6s ease;
+        }
+        .brand-item:hover .logo-pill::before { left: 100%; }
+        .brand-item:hover .logo-pill {
+            border-color: rgba(212,175,55,0.55);
+            box-shadow: 0 0 18px rgba(212,175,55,0.18), inset 0 0 20px rgba(212,175,55,0.04);
+        }
+        .logo-pill img {
+            width: 85%; height: 85%; object-fit: contain;
+            filter: grayscale(100%) brightness(0.7); transition: filter 0.45s ease, transform 0.45s ease;
+        }
+        .brand-item:hover .logo-pill img { filter: grayscale(0%) brightness(1); transform: scale(1.08); }
+
+        /* ==========================================================================
+           8. PARTNERS CARDS GRID
+           ========================================================================== */
+        .partners-section {
+            padding: 100px 8%; background: var(--bg-pure-black); position: relative; z-index: 2;
+        }
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-header h2 { font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; letter-spacing: 2px; }
+        .section-header h2 span { font-weight: 700; color: var(--gold-primary); }
+
+        .partners-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px;
+        }
+        .partner-card {
+            background: var(--bg-glass-card); border: 1px solid rgba(212,175,55,0.1);
+            padding: 40px 36px 36px; border-radius: 8px; position: relative; overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+            cursor: default; opacity: 0; transform: translateY(20px);
+        }
+        .partner-card.in-view { opacity: 1; transform: translateY(0); }
+        .partner-card::before {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 2px; background: var(--grad-gold); transition: left 0.7s ease;
+        }
+        .partner-card:hover { transform: translateY(-8px); border-color: var(--gold-alpha); background: rgba(255,255,255,0.04); box-shadow: var(--shadow-gold-glow); }
+        .partner-card:hover::before { left: 100%; }
+
+        .partner-logo-frame {
+            position: relative; width: 180px; height: 70px; margin-bottom: 28px;
+        }
+        .partner-logo-frame::before, .partner-logo-frame::after {
+            content: ''; position: absolute; width: 14px; height: 14px;
+            border-color: rgba(212,175,55,0.4); border-style: solid;
+            transition: border-color 0.4s ease, width 0.4s ease, height 0.4s ease;
+        }
+        .partner-logo-frame::before { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
+        .partner-logo-frame::after  { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
+        .partner-card:hover .partner-logo-frame::before,
+        .partner-card:hover .partner-logo-frame::after { border-color: var(--gold-primary); width: 20px; height: 20px; }
+
+        .partner-logo-frame img {
+            width: 100%; height: 100%; object-fit: contain; padding: 6px 10px;
+            filter: grayscale(80%) brightness(0.75); transition: filter 0.5s ease, transform 0.5s ease;
+        }
+        .partner-card:hover .partner-logo-frame img { filter: grayscale(0%) brightness(1); transform: scale(1.06); }
+        .partner-card h3 { font-size: 1.15rem; font-weight: 600; color: var(--text-white); letter-spacing: 0.5px; margin-bottom: 0; }
+        .partner-card:hover h3 { color: var(--gold-hover); }
+        .partner-number { position: absolute; top: 20px; right: 22px; font-size: 0.65rem; color: rgba(212,175,55,0.3); letter-spacing: 2px; font-weight: 600; }
+
+        /* ==========================================================================
+           9. FEATURED ALLIANCE
+           ========================================================================== */
+        .featured-alliance {
+            position: relative; z-index: 2; border-top: 1px solid var(--gold-alpha);
+            display: flex; flex-wrap: wrap; background: var(--bg-pure-black);
+        }
+        .alliance-img { flex: 1 1 50%; min-height: 60vh; position: relative; overflow: hidden; }
+        .alliance-img img {
+            width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+            filter: brightness(0.85); transition: transform 0.9s ease;
+        }
+        .featured-alliance:hover .alliance-img img { transform: scale(1.03); }
+        .alliance-content {
+            flex: 1 1 50%; padding: 100px 8%;
+            display: flex; flex-direction: column; justify-content: center;
+            border-left: 1px solid var(--gold-alpha); background: var(--bg-rich-dark);
+        }
+        .alliance-content h2 { font-size: clamp(2rem, 3vw, 3rem); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; }
+        .alliance-content h2 span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .alliance-content p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 0; }
+
+        /* ==========================================================================
+           10. FOOTER
+           ========================================================================== */
+        .executive-footer { background: #030303; border-top: 1px solid rgba(212,175,55,0.2); padding: 80px 8% 40px; position: relative; z-index: 2; }
+        .footer-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 50px; margin-bottom: 60px; }
+        .footer-brand-column h3 { font-size: 1.5rem; margin-bottom: 20px; letter-spacing: 2px; }
+        .footer-brand-column h3 span { color: var(--gold-primary); }
+        .footer-brand-column p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+        .footer-links-column h4 { color: var(--gold-primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
+        .footer-links-column ul { display: flex; flex-direction: column; gap: 15px; }
+        .footer-links-column a { color: var(--text-secondary); font-size: 0.85rem; transition: var(--transition-main); }
+        .footer-links-column a:hover { color: var(--gold-glow); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-bottom p { color: var(--text-muted); font-size: 0.8rem; }
+        .footer-socials { display: flex; gap: 20px; }
+        .footer-socials a { width: 40px; height: 40px; border: 1px solid rgba(212,175,55,0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--text-secondary); transition: var(--transition-main); }
+        .footer-socials a:hover { border-color: var(--gold-primary); color: var(--bg-pure-black); background: var(--grad-gold); box-shadow: var(--shadow-gold-glow); }
+
+        /* ==========================================================================
+           11. KEYFRAMES & RESPONSIVE
+           ========================================================================== */
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .mobile-control-dock { display: flex; }
+            .featured-alliance { flex-direction: column; }
+            .alliance-img { min-height: 42vh; }
+            .alliance-content { border-left: none; border-top: 1px solid var(--gold-alpha); padding: 60px 6%; }
+        }
+        @media (max-width: 900px) {
+            .header { padding: 18px 24px; }
+            .header.scrolled { padding: 12px 24px; }
+            .header-logo-wrap { width: 40px; height: 40px; }
+            .header-logo-img { width: 26px; height: 26px; }
+            .brand-logo { font-size: 1.2rem; letter-spacing: 2px; }
+            .brand-logo-sub { display: none; }
+        }
+        @media (max-width: 768px) {
+            .partners-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .partner-card { padding: 28px 22px 24px; }
+            .logo-pill { width: 150px; height: 60px; }
+        }
+        @media (max-width: 480px) {
+            .header { padding: 15px 20px; }
+            .brand-separator { display: none; }
+            .page-hero { padding: 60px 5%; height: 50vh; align-items: center; text-align: center; justify-content: center; }
+            .partners-section { padding: 60px 5%; }
+            .partners-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="blueprint-grid"></div>
+
+<!-- PRELOADER — LUXURY HEX WITH HANDSHAKE ICON -->
+<div id="preloader">
+    <div class="loader-corner tl"></div>
+    <div class="loader-corner tr"></div>
+    <div class="loader-corner bl"></div>
+    <div class="loader-corner br"></div>
+    <div class="loader-stage">
+        <div class="loader-hex-wrap">
+            <svg class="hex-svg" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%"   stop-color="#8B6B15"/>
+                        <stop offset="40%"  stop-color="#D4AF37"/>
+                        <stop offset="60%"  stop-color="#FFD54A"/>
+                        <stop offset="100%" stop-color="#8B6B15"/>
+                    </linearGradient>
+                </defs>
+                <polygon class="hex-outline" points="90,10 164,52 164,128 90,170 16,128 16,52"/>
+                <polygon class="hex-inner"   points="90,28 148,62 148,118 90,152 32,118 32,62"/>
+            </svg>
+            <!-- Handshake icon in a glowing circle -->
+            <div class="loader-icon-wrap">
+                <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+        </div>
+        <div class="loader-progress-track">
+            <div class="loader-progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="loader-info">
+            <div class="loader-brand-text">SMART <span>VISION</span></div>
+            <div class="loader-sub-row">
+                <div class="loader-divider"></div>
+                <div class="loader-tagline">Strategic Partnerships</div>
+                <div class="loader-divider right"></div>
+            </div>
+            <div class="loader-percentage" id="percentage-counter">0%</div>
+        </div>
+    </div>
+</div>
+
+<!-- HEADER WITH LOGO -->
+<header class="header" id="main-header">
+    <a class="brand-identity" href="index.html">
+        <div class="header-logo-wrap">
+            <div class="header-logo-ring"></div>
+            <img class="header-logo-img" src="tled_sign-removebg-preview.png" alt="Smart Vision Logo">
+        </div>
+        <div class="brand-separator"></div>
+        <div>
+            <div class="brand-logo">SMART <span>VISION</span></div>
+            <div class="brand-logo-sub">Engineering Consultancy</div>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="partnerships.html" class="active">Partnerships</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="career.html">Career</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</header>
+
+<!-- MOBILE DOCK WITH LOGO -->
+<nav class="mobile-control-dock" id="mobile-dock">
+    <div class="dock-brand-wrap">
+        <div class="dock-logo-mini">
+            <img src="tled_sign-removebg-preview.png" alt="Logo">
+        </div>
+        <div class="dock-brand">SMART <span>VISION</span></div>
+    </div>
+    <button class="dock-trigger-btn" id="dock-trigger">
+        <i class="fa-solid fa-compass-drafting"></i> NAVIGATE
+    </button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="overlay-close-btn" id="overlay-close">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="overlay-nav-grid">
+        <a href="index.html" class="overlay-nav-item"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="about.html" class="overlay-nav-item"><i class="fa-solid fa-building-user"></i><span>About</span></a>
+        <a href="services.html" class="overlay-nav-item"><i class="fa-solid fa-trowel-bricks"></i><span>Services</span></a>
+        <a href="projects.html" class="overlay-nav-item"><i class="fa-solid fa-city"></i><span>Projects</span></a>
+        <a href="partnerships.html" class="overlay-nav-item current"><i class="fa-solid fa-handshake-angle"></i><span>Partnerships</span></a>
+        <a href="team.html" class="overlay-nav-item"><i class="fa-solid fa-users-gear"></i><span>Team</span></a>
+        <a href="career.html" class="overlay-nav-item"><i class="fa-solid fa-briefcase"></i><span>Career</span></a>
+        <a href="news.html" class="overlay-nav-item"><i class="fa-solid fa-newspaper"></i><span>News</span></a>
+        <a href="contact.html" class="overlay-nav-item" style="grid-column: span 2;"><i class="fa-solid fa-envelope"></i><span>Contact Hub</span></a>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <span class="subtitle">Global Network</span>
+        <h1 class="page-title">Strategic <span>Alliances</span></h1>
+    </div>
+</section>
+
+<!-- MARQUEE LOGO STRIP -->
+<section class="marquee-section">
+    <div class="marquee-track" id="marquee-track">
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-25 at 1.44.26 AM.jpeg" alt="Gird Consult"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-25 at 1.39.58 AM.jpeg" alt="Palm Hills"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/,m.jpeg" alt="Three Corners"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/Untitled 7sign.jpg" alt="Zaro"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/Untitled design.jpg" alt="UECC"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-5 at 1.13.01 AM.jpeg" alt="Centruy"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-25 at 1.1.13 AM.jpeg" alt="Majra"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-25 at 1.13.27 AM.jpeg" alt="Country Homes"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-25 at 1.13.13 AM.jpeg" alt="Vantage"></div></div>
+        <!-- duplicated for seamless loop -->
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-25 at 1.44.26 AM.jpeg" alt="Gird Consult"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-25 at 1.39.58 AM.jpeg" alt="Palm Hills"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/,m.jpeg" alt="Three Corners"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/Untitled 7sign.jpg" alt="Zaro"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/Untitled design.jpg" alt="UECC"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-5 at 1.13.01 AM.jpeg" alt="Centruy"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-25 at 1.1.13 AM.jpeg" alt="Majra"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-25 at 1.13.27 AM.jpeg" alt="Country Homes"></div></div>
+        <div class="brand-item"><div class="logo-pill"><img src="New folder/WhatsApp Image 2026-05-25 at 1.13.13 AM.jpeg" alt="Vantage"></div></div>
+    </div>
+</section>
+
+<!-- PARTNERS GRID -->
+<section class="partners-section">
+    <div class="section-header">
+        <span class="subtitle" style="text-align:center; display:block;">Trusted Collaborators</span>
+        <h2>Our Core <span>Partners</span></h2>
+    </div>
+    <div class="partners-grid">
+
+        <div class="partner-card">
+            <span class="partner-number">01</span>
+            <div class="partner-logo-frame"><img src="New folder/WhatsApp Image 2026-05-25 at 1.39.58 AM.jpeg" alt="Palm Hills"></div>
+            <h3>Palm Hills Development</h3>
+        </div>
+
+        <div class="partner-card">
+            <span class="partner-number">02</span>
+            <div class="partner-logo-frame"><img src="New folder/WhatsApp Image 2026-05-25 at 1.13.01AM.jpeg" alt="Orascom"></div>
+            <h3>Orascom Development</h3>
+        </div>
+
+        <div class="partner-card">
+            <span class="partner-number">03</span>
+            <div class="partner-logo-frame"><img src="New folder/WhatsApp Image 2026-05-25 at 1.1.13 AM.jpeg" alt="Majra"></div>
+            <h3>Majra</h3>
+        </div>
+
+        <div class="partner-card">
+            <span class="partner-number">04</span>
+            <div class="partner-logo-frame"><img src="New folder/WhatsApp Image 2026-05-25 at 1.44.26 AM.jpeg" alt="Gird Consult"></div>
+            <h3>Gird Consult</h3>
+        </div>
+
+        <div class="partner-card">
+            <span class="partner-number">05</span>
+            <div class="partner-logo-frame"><img src="New folder/,m.jpeg" alt="Three Corners"></div>
+            <h3>The Three Corners</h3>
+        </div>
+
+        <div class="partner-card">
+            <span class="partner-number">06</span>
+            <div class="partner-logo-frame"><img src="New folder/WhatsApp Image 2026-05-25 at 1.13.13 AM.jpeg" alt="Vantage"></div>
+            <h3>Vantage</h3>
+        </div>
+
+        <div class="partner-card">
+            <span class="partner-number">07</span>
+            <div class="partner-logo-frame"><img src="New folder/WhatsApp Image 2026-05-25 at 1.13.27 AM.jpeg" alt="Country Homes"></div>
+            <h3>Country Homes</h3>
+        </div>
+
+        <div class="partner-card">
+            <span class="partner-number">08</span>
+            <div class="partner-logo-frame"><img src="New folder/Untitled design.jpg" alt="UECC"></div>
+            <h3>UECC</h3>
+        </div>
+
+        <div class="partner-card">
+            <span class="partner-number">09</span>
+            <div class="partner-logo-frame"><img src="New folder/Untitled 7sign.jpg" alt="Zaro"></div>
+            <h3>Zaro</h3>
+        </div>
+
+        <div class="partner-card">
+            <span class="partner-number">10</span>
+            <div class="partner-logo-frame"><img src="New folder/WhatsApp Image 2026-05-5 at 1.13.01 AM.jpeg" alt="Centruy"></div>
+            <h3>Centruy</h3>
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURED ALLIANCE -->
+<section class="featured-alliance">
+    <div class="alliance-img">
+        <img src="WhatsApp Image 2026-05-25 at 2.28.54 AM.jpeg" alt="Featured Joint Venture">
+    </div>
+    <div class="alliance-content">
+        <span class="subtitle">Featured Joint Venture</span>
+        <h2>The NovaTech <span>Alliance</span></h2>
+        <p>Our exclusive partnerships redefine urban development by integrating SMART VISION's engineering expertise with intelligent infrastructure and advanced building management systems — shaping smarter, more connected cities for tomorrow.</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="executive-footer">
+    <div class="footer-matrix">
+        <div class="footer-brand-column">
+            <h3>SMART <span>VISION</span></h3>
+            <p>Luxury Engineering Operations Hub — Engineering Architectural, Structural & MEP Excellence Since Inception.</p>
+        </div>
+        <div class="footer-links-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Our Services</a></li>
+                <li><a href="projects.html">Portfolio</a></li>
+                <li><a href="news.html">News & Updates</a></li>
+            </ul>
+        </div>
+        <div class="footer-links-column">
+            <h4>Connect</h4>
+            <div class="footer-socials" style="margin-top:0;">
+                <a href="https://wa.me/201021501250" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-osama-hassaan-354ba425?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/MohamedOsama.SV?locale=ar_AR" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 SMART VISION Engineering Operations. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+/* =====================================================================
+   JAVASCRIPT
+   ===================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+
+    // --- Preloader (Luxury Hex) ---
+    const counterEl   = document.getElementById("percentage-counter");
+    const progressBar = document.getElementById("progress-fill");
+    const preloader   = document.getElementById("preloader");
+    const mobileDock  = document.getElementById("mobile-dock");
+    let current = 0;
+
+    const updateLoader = () => {
+        current += Math.floor(Math.random() * 5) + 2;
+        if (current >= 100) {
+            current = 100;
+            counterEl.innerText     = "100%";
+            progressBar.style.width = "100%";
+            clearInterval(loaderInterval);
+            setTimeout(() => {
+                preloader.style.opacity   = "0";
+                preloader.style.transform = "translateY(-100dvh)";
+                setTimeout(() => {
+                    preloader.style.display = "none";
+                    mobileDock.classList.add("visible");
+                }, 1200);
+            }, 500);
+        } else {
+            counterEl.innerText     = current + "%";
+            progressBar.style.width = current + "%";
+        }
+    };
+    const loaderInterval = setInterval(updateLoader, 40);
+
+    // --- Header scroll ---
+    const header = document.getElementById("main-header");
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // --- Mobile overlay toggle ---
+    const dockBtn  = document.getElementById("dock-trigger");
+    const overlay  = document.getElementById("mobile-nav-overlay");
+    const closeBtn = document.getElementById("overlay-close");
+
+    function openOverlay() {
+        overlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+        dockBtn.innerHTML = '<i class="fa-solid fa-xmark"></i> CLOSE';
+        dockBtn.style.boxShadow = "0 0 25px #FFD54A";
+    }
+    function closeOverlay() {
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
+        dockBtn.innerHTML = '<i class="fa-solid fa-compass-drafting"></i> NAVIGATE';
+        dockBtn.style.boxShadow = "0 4px 15px rgba(212,175,55,0.4)";
+    }
+
+    dockBtn.addEventListener("click", () => {
+        overlay.classList.contains("active") ? closeOverlay() : openOverlay();
+    });
+    closeBtn.addEventListener("click", closeOverlay);
+    overlay.querySelectorAll(".overlay-nav-item").forEach(item => {
+        item.addEventListener("click", closeOverlay);
+    });
+
+    // --- Scroll-triggered card entrance ---
+    const cards = document.querySelectorAll(".partner-card");
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const idx = [...cards].indexOf(entry.target);
+                setTimeout(() => entry.target.classList.add("in-view"), (idx % 3) * 90);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    cards.forEach(c => obs.observe(c));
+
+});
+</script>
+<script src="assets/sv-config.js"></script>
+<script src="assets/sv-public.js" defer></script>
+</body>
+</html>

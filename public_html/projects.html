@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SMART VISION | Cinematic Projects & Portfolio</title>
+    <meta name="description" content="Browse the SMART VISION portfolio of architectural, structural, MEP and site supervision projects delivered for leading developers in Egypt.">
+    <link rel="canonical" href="https://smartvisiongcs.com/projects.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SMART VISION">
+    <meta property="og:title" content="SMART VISION | Cinematic Projects &amp; Portfolio">
+    <meta property="og:description" content="Browse the SMART VISION portfolio of architectural, structural, MEP and site supervision projects delivered for leading developers in Egypt.">
+    <meta property="og:url" content="https://smartvisiongcs.com/projects.html">
+    <meta name="twitter:card" content="summary">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN SYSTEM
+           ========================================================================== */
+        :root {
+            --bg-pure-black: #000000;
+            --bg-rich-dark: #0A0A0A;
+            --bg-glass: rgba(0, 0, 0, 0.75);
+            --bg-glass-card: rgba(255, 255, 255, 0.03);
+            --gold-primary: #D4AF37;
+            --gold-glow: #FFD54A;
+            --gold-hover: #E6C75A;
+            --gold-border: #C9A227;
+            --gold-alpha: rgba(212, 175, 55, 0.25);
+            --text-white: #FFFFFF;
+            --text-secondary: #CFCFCF;
+            --text-muted: #8F8F8F;
+            --grad-gold: linear-gradient(90deg, #8B6B15, #D4AF37, #FFD54A, #D4AF37, #8B6B15);
+            --grad-luxury-dark: linear-gradient(180deg, #000000, #0A0A0A, #000000);
+            --shadow-gold-glow: 0 0 15px rgba(212,175,55,0.35), 0 0 30px rgba(212,175,55,0.15);
+            --shadow-btn-hover: 0 0 20px #D4AF37, 0 0 40px rgba(212,175,55,0.5);
+            --glass-blur: blur(16px);
+            --font-main: 'Inter', sans-serif;
+            --transition-main: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* ==========================================================================
+           2. RESET & BASE
+           ========================================================================== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%;
+            background-color: var(--bg-pure-black);
+            color: var(--text-white);
+            font-family: var(--font-main) !important;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-pure-black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-border); border-radius: 3px; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        html, body, h1, h2, h3, h4, .brand-logo, .nav-links a, .dock-item {
+            font-family: var(--font-main) !important;
+        }
+
+        .blueprint-grid {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image:
+                linear-gradient(rgba(212, 175, 55, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none; z-index: 1;
+        }
+
+        /* ==========================================================================
+           3. PRELOADER — LUXURY HEX DESIGN (from About page)
+           ========================================================================== */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100dvh;
+            background: var(--bg-pure-black); z-index: 99999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1), opacity 1s linear;
+            overflow: hidden;
+        }
+        #preloader::before {
+            content: ''; position: absolute; inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212,175,55,0.012) 2px, rgba(212,175,55,0.012) 4px);
+            pointer-events: none; z-index: 0;
+        }
+        #preloader::after {
+            content: ''; position: absolute; top: -40%; left: 0; width: 100%; height: 40%;
+            background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.04), transparent);
+            animation: scanBeam 3.5s ease-in-out infinite; pointer-events: none; z-index: 0;
+        }
+        @keyframes scanBeam { 0%{top:-40%} 100%{top:140%} }
+
+        .loader-stage {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .loader-hex-wrap {
+            position: relative; width: 180px; height: 180px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hex-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .hex-outline {
+            fill: none; stroke: url(#hexGrad); stroke-width: 1.5;
+            stroke-dasharray: 600; stroke-dashoffset: 600;
+            animation: hexDraw 1.8s cubic-bezier(0.4,0,0.2,1) forwards 0.3s;
+        }
+        .hex-inner {
+            fill: none; stroke: rgba(212,175,55,0.12); stroke-width: 0.8;
+            stroke-dasharray: 4 8; animation: rotateSlow 12s linear infinite;
+            transform-origin: 90px 90px;
+        }
+        @keyframes hexDraw { to { stroke-dashoffset: 0; } }
+        @keyframes rotateSlow { to { transform: rotate(360deg); } }
+
+        .loader-logo-img {
+            width: 68px; height: 68px; object-fit: contain;
+            position: relative; z-index: 3;
+            animation: logoPulse 2.5s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 10px rgba(212,175,55,0.6));
+        }
+        @keyframes logoPulse {
+            0%   { filter: drop-shadow(0 0 6px rgba(212,175,55,0.4)); opacity: 0.85; }
+            100% { filter: drop-shadow(0 0 20px rgba(255,213,74,0.9)); opacity: 1; }
+        }
+
+        .loader-progress-track {
+            width: 220px; height: 1px; background: rgba(212,175,55,0.15);
+            margin-top: 32px; position: relative; overflow: hidden; border-radius: 1px;
+        }
+        .loader-progress-fill {
+            height: 100%; background: var(--grad-gold); width: 0%;
+            transition: width 0.1s ease; box-shadow: 0 0 8px rgba(255,213,74,0.8);
+        }
+        .loader-progress-fill::after {
+            content: ''; position: absolute; right: -10px; top: -4px;
+            width: 20px; height: 9px;
+            background: radial-gradient(ellipse, rgba(255,255,255,0.8) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .loader-info { margin-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .loader-brand-text { font-size: 1.1rem; font-weight: 700; letter-spacing: 8px; text-transform: uppercase; color: var(--text-white); }
+        .loader-brand-text span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .loader-sub-row { display: flex; align-items: center; gap: 16px; }
+        .loader-divider { width: 30px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-border)); }
+        .loader-divider.right { background: linear-gradient(to left, transparent, var(--gold-border)); }
+        .loader-tagline { font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); }
+        .loader-percentage { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; color: var(--gold-primary); margin-top: 6px; }
+
+        .loader-corner { position: absolute; width: 50px; height: 50px; opacity: 0.35; }
+        .loader-corner.tl { top: 30px; left: 30px; border-top: 1px solid var(--gold-primary); border-left: 1px solid var(--gold-primary); }
+        .loader-corner.tr { top: 30px; right: 30px; border-top: 1px solid var(--gold-primary); border-right: 1px solid var(--gold-primary); }
+        .loader-corner.bl { bottom: 30px; left: 30px; border-bottom: 1px solid var(--gold-primary); border-left: 1px solid var(--gold-primary); }
+        .loader-corner.br { bottom: 30px; right: 30px; border-bottom: 1px solid var(--gold-primary); border-right: 1px solid var(--gold-primary); }
+
+        /* ==========================================================================
+           4. HEADER WITH LOGO (from About page)
+           ========================================================================== */
+        .header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 22px 60px; display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: var(--transition-main);
+        }
+        .header.scrolled {
+            padding: 12px 60px; background: var(--bg-glass);
+            backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--gold-alpha);
+        }
+
+        .brand-identity { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+
+        .header-logo-wrap {
+            position: relative; width: 46px; height: 46px;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .header-logo-ring {
+            position: absolute; inset: 0; border-radius: 50%;
+            border: 1px solid var(--gold-border);
+            box-shadow: 0 0 10px rgba(212,175,55,0.2), inset 0 0 8px rgba(212,175,55,0.05);
+            transition: var(--transition-main);
+        }
+        .header-logo-ring::before {
+            content: ''; position: absolute; inset: 3px; border-radius: 50%;
+            border: 1px dashed rgba(212,175,55,0.25);
+            animation: rotateSlow 18s linear infinite;
+        }
+        .header-logo-img {
+            width: 30px; height: 30px; object-fit: contain; position: relative; z-index: 2;
+            filter: drop-shadow(0 0 4px rgba(212,175,55,0.4)); transition: var(--transition-main);
+        }
+        .brand-identity:hover .header-logo-ring { box-shadow: var(--shadow-gold-glow); border-color: var(--gold-glow); }
+        .brand-identity:hover .header-logo-img { filter: drop-shadow(0 0 10px rgba(255,213,74,0.7)); transform: scale(1.05); }
+
+        .brand-separator { width: 1px; height: 28px; background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.4), transparent); }
+        .brand-logo { font-size: 1.45rem; font-weight: 900; letter-spacing: 3px; color: var(--text-white); line-height: 1; white-space: nowrap; }
+        .brand-logo span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .brand-logo-sub { font-size: 0.52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); margin-top: 3px; font-weight: 400; }
+
+        .nav-links { display: flex; gap: 35px; }
+        .nav-links a { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary); position: relative; padding: 10px 0; }
+        .nav-links a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--grad-gold); transition: var(--transition-main); }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-hover); text-shadow: 0 0 8px rgba(255,213,74,0.3); }
+        .nav-links a:hover::before, .nav-links a.active::before { width: 100%; }
+
+        /* ==========================================================================
+           5. MOBILE DOCK WITH LOGO (from About page)
+           ========================================================================== */
+        .mobile-control-dock {
+            display: none; position: fixed; bottom: 25px; left: 50%;
+            transform: translateX(-50%) translateY(100px); width: 90%; max-width: 400px;
+            background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+            border: 1px solid rgba(212,175,55,0.4); border-radius: 40px;
+            padding: 9px 20px; justify-content: space-between; align-items: center;
+            z-index: 10000; box-shadow: var(--shadow-gold-glow); opacity: 0;
+            transition: transform 1s cubic-bezier(0.16,1,0.3,1), opacity 1s ease;
+        }
+        .mobile-control-dock.visible { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        .dock-brand-wrap { display: flex; align-items: center; gap: 9px; }
+        .dock-logo-mini {
+            width: 30px; height: 30px; border-radius: 50%;
+            border: 1px solid rgba(212,175,55,0.5);
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(212,175,55,0.05); flex-shrink: 0;
+        }
+        .dock-logo-mini img { width: 18px; height: 18px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(212,175,55,0.5)); }
+        .dock-brand { font-size: 0.85rem; font-weight: 700; color: var(--text-white); letter-spacing: 1px; }
+        .dock-brand span { color: var(--gold-primary); }
+
+        .dock-trigger-btn {
+            background: var(--grad-gold); border: none; padding: 10px 20px; border-radius: 30px;
+            font-family: var(--font-main); font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+            cursor: pointer; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.4); transition: var(--transition-main); white-space: nowrap;
+        }
+
+        .immersive-overlay-menu {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100dvh;
+            background: rgba(0,0,0,0.96); backdrop-filter: blur(30px); z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; visibility: hidden; transition: var(--transition-main);
+        }
+        .immersive-overlay-menu.active { opacity: 1; visibility: visible; }
+        .overlay-nav-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; width: 85%; max-width: 340px; text-align: center; }
+        .overlay-nav-item {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.15);
+            padding: 22px 15px; border-radius: 16px; display: flex; flex-direction: column;
+            align-items: center; gap: 12px; opacity: 0; transform: translateY(30px); transition: var(--transition-main);
+        }
+        .immersive-overlay-menu.active .overlay-nav-item { opacity: 1; transform: translateY(0); }
+        .overlay-nav-item i { font-size: 1.3rem; color: var(--gold-primary); }
+        .overlay-nav-item span { font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary); }
+        .overlay-nav-item:hover { background: linear-gradient(135deg,rgba(212,175,55,0.1) 0%,transparent 100%); border-color: var(--gold-primary); box-shadow: var(--shadow-gold-glow); }
+
+        /* ==========================================================================
+           6. HERO
+           ========================================================================== */
+        .page-hero {
+            position: relative; height: 60vh; width: 100%;
+            display: flex; align-items: flex-end; padding: 80px 8%;
+            background: var(--bg-pure-black); overflow: hidden; z-index: 2;
+            border-bottom: 1px solid var(--gold-alpha);
+        }
+        .page-hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1481253127861-534498168948?q=80&w=2073&auto=format&fit=crop') center/cover no-repeat;
+            background-attachment: fixed; filter: brightness(0.3) grayscale(0.4); z-index: 1;
+        }
+        .page-hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, #0A0A0A 5%, transparent 100%); z-index: 2;
+        }
+        .page-hero-content { position: relative; z-index: 3; max-width: 900px; transform: translateY(30px); opacity: 0; animation: fadeInUp 1s forwards 1.2s; }
+        .subtitle { color: var(--gold-primary); font-size: 0.85rem; letter-spacing: 5px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+        .page-title { font-size: clamp(2.5rem, 4vw, 4rem); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; line-height: 1.2; }
+        .page-title span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* ==========================================================================
+           7. PORTFOLIO SECTION
+           ========================================================================== */
+        .portfolio-section {
+            padding: 100px 8%;
+            background: var(--bg-rich-dark);
+            position: relative; z-index: 2;
+            min-height: 100vh;
+        }
+
+        /* --- Filter Controls --- */
+        .filter-controls {
+            display: flex; justify-content: center; flex-wrap: wrap;
+            gap: 15px; margin-bottom: 60px;
+        }
+        .filter-btn {
+            background: transparent; border: 1px solid rgba(212,175,55,0.3);
+            color: var(--text-secondary); padding: 12px 25px;
+            font-family: var(--font-main); font-size: 0.85rem;
+            letter-spacing: 2px; text-transform: uppercase;
+            cursor: pointer; border-radius: 30px; transition: var(--transition-main);
+        }
+        .filter-btn:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+        .filter-btn.active {
+            background: var(--gold-primary); color: var(--bg-pure-black);
+            border-color: var(--gold-primary); font-weight: 700;
+            box-shadow: var(--shadow-gold-glow);
+        }
+
+        /* --- Gallery Grid --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 28px;
+        }
+
+        .project-card {
+            position: relative;
+            height: 460px;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid rgba(212,175,55,0.08);
+            background: #0d0d0d;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(24px) scale(0.98);
+            transition:
+                opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+        .project-card.in-view {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .project-card.is-hidden {
+            display: none;
+        }
+        .project-card:hover {
+            border-color: rgba(212,175,55,0.5);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.2), var(--shadow-gold-glow);
+            transform: translateY(-6px) scale(1.01);
+        }
+
+        .project-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            filter: grayscale(30%) brightness(0.65);
+            transform: scale(1.0);
+            transition:
+                transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter 0.7s ease;
+            will-change: transform, filter;
+        }
+        .project-card:hover .project-img {
+            transform: scale(1.09);
+            filter: grayscale(0%) brightness(0.45);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,0.92) 0%,
+                rgba(0,0,0,0.55) 40%,
+                rgba(0,0,0,0.0) 70%
+            );
+            z-index: 2;
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+        }
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 2px;
+            background: var(--grad-gold);
+            z-index: 5;
+            transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .project-card:hover::after {
+            left: 0;
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%;
+            padding: 35px 28px 28px;
+            z-index: 3;
+            transform: translateY(12px);
+            opacity: 0;
+            transition:
+                opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .project-card:hover .project-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .proj-category {
+            display: inline-block;
+            font-size: 0.72rem; color: var(--gold-primary);
+            text-transform: uppercase; letter-spacing: 3px;
+            margin-bottom: 8px;
+            transform: translateY(10px); opacity: 0;
+            transition: transform 0.4s ease 0.05s, opacity 0.4s ease 0.05s;
+        }
+        .project-card:hover .proj-category { transform: translateY(0); opacity: 1; }
+
+        .proj-title {
+            font-size: 1.45rem; font-weight: 700;
+            color: var(--text-white); text-transform: uppercase;
+            letter-spacing: 1.5px; margin-bottom: 14px;
+            transform: translateY(12px); opacity: 0;
+            transition: transform 0.4s ease 0.12s, opacity 0.4s ease 0.12s;
+        }
+        .project-card:hover .proj-title { transform: translateY(0); opacity: 1; }
+
+        .proj-stats {
+            display: flex; gap: 22px;
+            border-top: 1px solid rgba(212,175,55,0.28);
+            padding-top: 14px;
+            transform: translateY(12px); opacity: 0;
+            transition: transform 0.4s ease 0.2s, opacity 0.4s ease 0.2s;
+        }
+        .project-card:hover .proj-stats { transform: translateY(0); opacity: 1; }
+
+        .stat-item { display: flex; flex-direction: column; gap: 4px; }
+        .stat-label { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .stat-value { font-size: 0.88rem; color: var(--text-secondary); font-weight: 500; }
+        .stat-value i { color: var(--gold-primary); margin-right: 4px; font-size: 0.78rem; }
+
+        .view-btn {
+            position: absolute; top: 22px; right: 22px;
+            width: 46px; height: 46px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(212,175,55,0.6);
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            color: var(--gold-primary); font-size: 1rem;
+            backdrop-filter: blur(6px);
+            z-index: 4;
+            transform: scale(0) rotate(-45deg);
+            opacity: 0;
+            transition:
+                transform 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.1s,
+                opacity 0.3s ease 0.1s,
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+        .project-card:hover .view-btn {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+            background: var(--gold-primary);
+            color: var(--bg-pure-black);
+            box-shadow: var(--shadow-gold-glow);
+        }
+
+        .category-badge {
+            position: absolute; top: 22px; left: 22px;
+            padding: 6px 14px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(212,175,55,0.35);
+            border-radius: 20px;
+            font-size: 0.68rem; color: var(--gold-primary);
+            text-transform: uppercase; letter-spacing: 2px;
+            backdrop-filter: blur(8px);
+            z-index: 4;
+            transition: var(--transition-main);
+        }
+        .project-card:hover .category-badge {
+            background: var(--gold-alpha);
+            border-color: var(--gold-primary);
+        }
+
+        /* ==========================================================================
+           8. LIGHTBOX
+           ========================================================================== */
+        .lightbox-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.96);
+            backdrop-filter: blur(20px);
+            z-index: 99998;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .lightbox-overlay.open {
+            opacity: 1; visibility: visible;
+        }
+        .lightbox-img-wrap {
+            position: relative;
+            max-width: 90vw; max-height: 88vh;
+            transform: scale(0.92);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .lightbox-overlay.open .lightbox-img-wrap {
+            transform: scale(1);
+        }
+        .lightbox-img {
+            max-width: 90vw; max-height: 85vh;
+            object-fit: contain;
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 4px;
+            display: block;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+        }
+        .lightbox-close {
+            position: absolute; top: -18px; right: -18px;
+            width: 42px; height: 42px;
+            background: var(--gold-primary); color: #000;
+            border: none; border-radius: 50%;
+            font-size: 1.1rem; cursor: pointer;
+            display: flex; justify-content: center; align-items: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: var(--shadow-gold-glow);
+        }
+        .lightbox-close:hover { transform: rotate(90deg) scale(1.1); background: var(--gold-glow); }
+        .lightbox-counter {
+            position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%);
+            font-size: 0.75rem; color: var(--text-muted); letter-spacing: 2px;
+        }
+        .lightbox-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 46px; height: 46px;
+            background: rgba(0,0,0,0.6); border: 1px solid rgba(212,175,55,0.4);
+            border-radius: 50%; color: var(--gold-primary);
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; font-size: 1rem;
+            backdrop-filter: blur(8px);
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            z-index: 5;
+        }
+        .lightbox-nav:hover { background: var(--gold-primary); color: #000; transform: translateY(-50%) scale(1.1); }
+        .lightbox-prev { left: -60px; }
+        .lightbox-next { right: -60px; }
+
+        /* ==========================================================================
+           9. FEATURED PROJECT
+           ========================================================================== */
+        .featured-project {
+            padding: 0; position: relative; z-index: 2;
+            border-top: 1px solid var(--gold-alpha);
+            display: flex; flex-wrap: wrap;
+            background: var(--bg-pure-black);
+        }
+        .featured-img {
+            flex: 1 1 50%; min-height: 60vh;
+            background: url('https://images.unsplash.com/photo-1577401140939-2cebfa7fb104?q=80&w=1964&auto=format&fit=crop') center/cover no-repeat;
+        }
+        .featured-content {
+            flex: 1 1 50%; padding: 100px 8%;
+            display: flex; flex-direction: column; justify-content: center;
+            border-left: 1px solid var(--gold-alpha);
+        }
+        .featured-content .subtitle { margin-bottom: 20px; }
+        .featured-content h2 { font-size: clamp(2rem, 3vw, 3rem); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; }
+        .featured-content h2 span { background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .featured-content p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 40px; }
+        .featured-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+        .metric-box { border-left: 2px solid var(--gold-primary); padding-left: 15px; }
+        .metric-box h4 { font-size: 1.5rem; color: var(--text-white); margin-bottom: 5px; }
+        .metric-box span { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ==========================================================================
+           10. FOOTER
+           ========================================================================== */
+        .executive-footer {
+            background: #030303; border-top: 1px solid rgba(212,175,55,0.2);
+            padding: 80px 8% 40px 8%; position: relative; z-index: 2;
+        }
+        .footer-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 50px; margin-bottom: 60px; }
+        .footer-brand-column h3 { font-size: 1.5rem; margin-bottom: 20px; letter-spacing: 2px; }
+        .footer-brand-column h3 span { color: var(--gold-primary); }
+        .footer-brand-column p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+        .footer-links-column h4 { color: var(--gold-primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
+        .footer-links-column ul { display: flex; flex-direction: column; gap: 15px; }
+        .footer-links-column a { color: var(--text-secondary); font-size: 0.85rem; transition: var(--transition-main); }
+        .footer-links-column a:hover { color: var(--gold-glow); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-bottom p { color: var(--text-muted); font-size: 0.8rem; }
+        .footer-socials { display: flex; gap: 20px; }
+        .footer-socials a { width: 40px; height: 40px; border: 1px solid rgba(212,175,55,0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--text-secondary); transition: var(--transition-main); }
+        .footer-socials a:hover { border-color: var(--gold-primary); color: var(--bg-pure-black); background: var(--grad-gold); box-shadow: var(--shadow-gold-glow); }
+
+        /* ==========================================================================
+           11. KEYFRAMES & RESPONSIVE
+           ========================================================================== */
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .mobile-control-dock { display: flex; }
+            .featured-project { flex-direction: column; }
+            .featured-img { min-height: 40vh; }
+            .featured-content { border-left: none; border-top: 1px solid var(--gold-alpha); padding: 60px 5%; }
+            .lightbox-prev { left: -15px; }
+            .lightbox-next { right: -15px; }
+        }
+
+        @media (max-width: 900px) {
+            .header { padding: 18px 24px; }
+            .header.scrolled { padding: 12px 24px; }
+            .header-logo-wrap { width: 40px; height: 40px; }
+            .header-logo-img { width: 26px; height: 26px; }
+            .brand-logo { font-size: 1.2rem; letter-spacing: 2px; }
+            .brand-logo-sub { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+            .project-card { height: 380px; }
+            .filter-btn { padding: 10px 18px; font-size: 0.75rem; }
+        }
+
+        @media (max-width: 480px) {
+            .header { padding: 15px 20px; }
+            .brand-separator { display: none; }
+            .page-hero { padding: 60px 5%; height: 50vh; align-items: center; text-align: center; justify-content: center; }
+            .portfolio-section { padding: 60px 5%; }
+            .featured-metrics { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blueprint-grid"></div>
+
+    <!-- PRELOADER — LUXURY HEX DESIGN -->
+    <div id="preloader">
+        <div class="loader-corner tl"></div>
+        <div class="loader-corner tr"></div>
+        <div class="loader-corner bl"></div>
+        <div class="loader-corner br"></div>
+        <div class="loader-stage">
+            <div class="loader-hex-wrap">
+                <svg class="hex-svg" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%"   stop-color="#8B6B15"/>
+                            <stop offset="40%"  stop-color="#D4AF37"/>
+                            <stop offset="60%"  stop-color="#FFD54A"/>
+                            <stop offset="100%" stop-color="#8B6B15"/>
+                        </linearGradient>
+                    </defs>
+                    <polygon class="hex-outline" points="90,10 164,52 164,128 90,170 16,128 16,52"/>
+                    <polygon class="hex-inner"   points="90,28 148,62 148,118 90,152 32,118 32,62"/>
+                </svg>
+                <img class="loader-logo-img" src="tled_sign-removebg-preview.png" alt="Smart Vision Logo">
+            </div>
+            <div class="loader-progress-track">
+                <div class="loader-progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="loader-info">
+                <div class="loader-brand-text">SMART <span>VISION</span></div>
+                <div class="loader-sub-row">
+                    <div class="loader-divider"></div>
+                    <div class="loader-tagline">Engineering Consultancy</div>
+                    <div class="loader-divider right"></div>
+                </div>
+                <div class="loader-percentage" id="percentage-counter">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightbox">
+        <div class="lightbox-img-wrap">
+            <button class="lightbox-close" id="lb-close"><i class="fa-solid fa-xmark"></i></button>
+            <button class="lightbox-nav lightbox-prev" id="lb-prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <img class="lightbox-img" id="lb-img" src="" alt="">
+            <button class="lightbox-nav lightbox-next" id="lb-next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="lightbox-counter" id="lb-counter">1 / 1</div>
+        </div>
+    </div>
+
+    <!-- HEADER WITH LOGO -->
+    <header class="header" id="main-header">
+        <a class="brand-identity" href="index.html">
+            <div class="header-logo-wrap">
+                <div class="header-logo-ring"></div>
+                <img class="header-logo-img" src="tled_sign-removebg-preview.png" alt="Smart Vision Logo">
+            </div>
+            <div class="brand-separator"></div>
+            <div>
+                <div class="brand-logo">SMART <span>VISION</span></div>
+                <div class="brand-logo-sub">Engineering Consultancy</div>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="partnerships.html">Partnerships</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- MOBILE DOCK WITH LOGO -->
+    <nav class="mobile-control-dock" id="mobile-dock">
+        <div class="dock-brand-wrap">
+            <div class="dock-logo-mini">
+                <img src="tled_sign-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="dock-brand">SMART <span>VISION</span></div>
+        </div>
+        <button class="dock-trigger-btn" id="dock-trigger">
+            <i class="fa-solid fa-compass-drafting"></i> NAVIGATE
+        </button>
+    </nav>
+
+    <!-- MOBILE OVERLAY -->
+    <div class="immersive-overlay-menu" id="control-center-overlay">
+        <div class="overlay-nav-grid">
+            <a href="index.html" class="overlay-nav-item"><i class="fa-solid fa-house"></i><span>Home</span></a>
+            <a href="about.html" class="overlay-nav-item"><i class="fa-solid fa-building-user"></i><span>About</span></a>
+            <a href="services.html" class="overlay-nav-item"><i class="fa-solid fa-trowel-bricks"></i><span>Services</span></a>
+            <a href="projects.html" class="overlay-nav-item" style="border-color: var(--gold-primary);"><i class="fa-solid fa-city"></i><span style="color: var(--gold-primary);">Projects</span></a>
+            <a href="partnerships.html" class="overlay-nav-item"><i class="fa-solid fa-handshake-angle"></i><span>Partnerships</span></a>
+            <a href="team.html" class="overlay-nav-item"><i class="fa-solid fa-users-gear"></i><span>Team</span></a>
+            <a href="career.html" class="overlay-nav-item"><i class="fa-solid fa-briefcase"></i><span>Career</span></a>
+            <a href="news.html" class="overlay-nav-item"><i class="fa-solid fa-newspaper"></i><span>News</span></a>
+            <a href="contact.html" class="overlay-nav-item" style="grid-column: span 2;"><i class="fa-solid fa-envelope"></i><span>Contact Hub</span></a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <span class="subtitle">Structural Masterpieces</span>
+            <h1 class="page-title">The Corporate <span>Portfolio</span></h1>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO GALLERY -->
+    <section class="portfolio-section">
+
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All Sectors</button>
+            <button class="filter-btn" data-filter="Architecture">Architecture</button>
+            <button class="filter-btn" data-filter="Structure">Structure</button>
+            <button class="filter-btn" data-filter="MEP">MEP</button>
+            <button class="filter-btn" data-filter="Site Supervision">Site Supervision</button>
+        </div>
+
+        <div class="gallery-grid" id="portfolio-grid">
+
+            <!-- Architecture -->
+            <div class="project-card" data-category="Architecture">
+                <img src="projects/New folder (2)/New folder (2)/arc/Building_A_IFC_wp0030-ELE-A-1108228.png" alt="Architecture Drawing A" class="project-img">
+                <div class="category-badge">Architecture</div>
+                <div class="project-info">
+                    <span class="proj-category">Architecture</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Architecture">
+                <img src="projects/New folder (2)/New folder (2)/arc/Building_B_IFC_wp0030-ELE-B-1335306.png" alt="Architecture Drawing B" class="project-img">
+                <div class="category-badge">Architecture</div>
+                <div class="project-info">
+                    <span class="proj-category">Architecture</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Architecture">
+                <img src="projects/New folder (2)/New folder (2)/arc/WhatsApp Image 2026-05-19 at 9.13.45 PM.jpeg" alt="Architecture Visual" class="project-img">
+                <div class="category-badge">Architecture</div>
+                <div class="project-info">
+                    <span class="proj-category">Architecture</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Architecture">
+                <img src="projects/New folder (2)/New folder (2)/arc/WhatsApp Image 2026-05-19 at 9.17.55 PM (1).jpeg" alt="Architecture Visual 2" class="project-img">
+                <div class="category-badge">Architecture</div>
+                <div class="project-info">
+                    <span class="proj-category">Architecture</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <!-- Structure -->
+            <div class="project-card" data-category="Structure">
+                <img src="projects/New folder (2)/New folder (2)/STR/Screenshot 2026-05-25 011353.png" alt="Structure Drawing 1" class="project-img">
+                <div class="category-badge">Structure</div>
+                <div class="project-info">
+                    <span class="proj-category">Structure</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Structure">
+                <img src="projects/New folder (2)/New folder (2)/STR/Screenshot 2026-05-25 011429.png" alt="Structure Drawing 2" class="project-img">
+                <div class="category-badge">Structure</div>
+                <div class="project-info">
+                    <span class="proj-category">Structure</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Structure">
+                <img src="projects/New folder (2)/New folder (2)/STR/WhatsApp Image 2026-05-24 at 9.36.43 PM (1).jpeg" alt="Structure Photo 1" class="project-img">
+                <div class="category-badge">Structure</div>
+                <div class="project-info">
+                    <span class="proj-category">Structure</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Structure">
+                <img src="projects/New folder (2)/New folder (2)/STR/WhatsApp Image 2026-05-24 at 9.36.43 PM (2).jpeg" alt="Structure Photo 2" class="project-img">
+                <div class="category-badge">Structure</div>
+                <div class="project-info">
+                    <span class="proj-category">Structure</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Structure">
+                <img src="projects/New folder (2)/New folder (2)/STR/WhatsApp Image 2026-05-24 at 9.36.43 PM (3).jpeg" alt="Structure Photo 3" class="project-img">
+                <div class="category-badge">Structure</div>
+                <div class="project-info">
+                    <span class="proj-category">Structure</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Structure">
+                <img src="projects/New folder (2)/New folder (2)/STR/WhatsApp Image 2026-05-24 at 9.36.43 PM.jpeg" alt="Structure Photo 4" class="project-img">
+                <div class="category-badge">Structure</div>
+                <div class="project-info">
+                    <span class="proj-category">Structure</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <!-- MEP -->
+            <div class="project-card" data-category="MEP">
+                <img src="projects/New folder (2)/New folder (2)/MEP/ChatGPT Image May 12, 2026, 05_52_07 PM.png" alt="MEP Visual 1" class="project-img">
+                <div class="category-badge">MEP</div>
+                <div class="project-info">
+                    <span class="proj-category">MEP SYSTEMS</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="MEP">
+                <img src="projects/New folder (2)/New folder (2)/MEP/ChatGPT Image May 12, 2026, 05_54_43 PM.png" alt="MEP Visual 2" class="project-img">
+                <div class="category-badge">MEP</div>
+                <div class="project-info">
+                    <span class="proj-category">MEP SYSTEMS</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="MEP">
+                <img src="projects/New folder (2)/New folder (2)/MEP/ChatGPT Image May 12, 2026, 05_56_55 PM.png" alt="MEP Visual 3" class="project-img">
+                <div class="category-badge">MEP</div>
+                <div class="project-info">
+                    <span class="proj-category">MEP SYSTEMS</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="MEP">
+                <img src="projects/New folder (2)/New folder (2)/MEP/ChatGPT Image May 12, 2026, 06_03_11 PM.png" alt="MEP Visual 4" class="project-img">
+                <div class="category-badge">MEP</div>
+                <div class="project-info">
+                    <span class="proj-category">MEP SYSTEMS</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="MEP">
+                <img src="projects/New folder (2)/New folder (2)/MEP/ChatGPT Image May 12, 2026, 06_07_31 PM.png" alt="MEP Visual 5" class="project-img">
+                <div class="category-badge">MEP</div>
+                <div class="project-info">
+                    <span class="proj-category">MEP SYSTEMS</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="MEP">
+                <img src="projects/New folder (2)/New folder (2)/MEP/ChatGPT Image May 12, 2026, 06_05_06 PM.png" alt="MEP Visual 6" class="project-img">
+                <div class="category-badge">MEP</div>
+                <div class="project-info">
+                    <span class="proj-category">MEP SYSTEMS</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <!-- Site Supervision -->
+            <div class="project-card" data-category="Site Supervision">
+                <img src="WhatsApp Image 2026-05-25 at 2.47.53 AM.jpeg" alt="Site Photo 1" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.25 AM (2).jpeg" alt="Site Visual" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.25 AM (1).jpeg" alt="Site Photo 2" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/ChatGPT Image May 24, 2026, 05_10_11 PM.png" alt="Site Photo 3" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.25 AM (4).jpeg" alt="Site Photo 4" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.55.14 AM.jpeg" alt="Site Photo 5" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.53.38 AM.jpeg" alt="Site Photo 6" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.27 AM.jpeg" alt="Site Photo 7" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.27 AM (3).jpeg" alt="Site Photo 8" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.28 AM.jpeg" alt="Site Photo 9" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.27 AM.jpeg" alt="Site Photo 9" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.27 AM (4).jpeg" alt="Site Photo 9" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.27 AM (1).jpeg" alt="Site Photo 9" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.26 AM (2).jpeg" alt="Site Photo 9" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="projects/New folder (2)/New folder (2)/Site/WhatsApp Image 2026-05-25 at 12.47.25 AM.jpeg" alt="Site Photo 9" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="New folder (2)/WhatsApp Image 2026-05-26 at 1.17.45 AM.jpeg" alt="Site Photo 9" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="New folder (2)/WhatsApp Image 2026-05-26 at 1.17.45 AM (3).jpeg" alt="Site Photo 9" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="New folder (2)/WhatsApp Image 2026-05-26 at 1.17.45 AM (2).jpeg" alt="Site Photo 9" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+            <div class="project-card" data-category="Site Supervision">
+                <img src="New folder (2)/WhatsApp Image 2026-05-26 at 1.17.45 AM (1).jpeg" alt="Site Photo 9" class="project-img">
+                <div class="category-badge">Site</div>
+                <div class="project-info">
+                    <span class="proj-category">Site Supervision</span>
+                </div>
+                <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="featured-project">
+        <div class="featured-img"></div>
+        <div class="featured-content">
+            <span class="subtitle">FLAGSHIP ENGINEERING</span>
+            <h2>Luxury & <span>Premium</span></h2>
+            <p>At SMART VISION every project is a flagship project.
+Each undertaking receives the same uncompromising commitment to precision, innovation, and engineering excellence—because every vision deserves landmark execution.</p>
+            <a href="contact.html" class="filter-btn" style="text-align:center; width:max-content;">Discuss Similar Projects</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="executive-footer">
+        <div class="footer-matrix">
+            <div class="footer-brand-column">
+                <h3>SMART <span>VISION</span></h3>
+                <p>Luxury Engineering Operations Hub — Engineering Architectural, Structural & MEP Excellence Since Inception.</p>
+            </div>
+            <div class="footer-links-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="projects.html">Portfolio</a></li>
+                    <li><a href="news.html">News & Updates</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-column">
+            <h4>Connect</h4>
+            <div class="footer-socials" style="margin-top:0;">
+                <a href="https://wa.me/201021501250" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-osama-hassaan-354ba425?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/MohamedOsama.SV?locale=ar_AR" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SMART VISION Engineering Operations. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    /* =====================================================================
+       JAVASCRIPT — Preloader, Header, Mobile Nav, Filter, Lightbox
+       ===================================================================== */
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // --- Preloader (Luxury Hex) ---
+        const counterEl   = document.getElementById("percentage-counter");
+        const progressBar = document.getElementById("progress-fill");
+        const preloader   = document.getElementById("preloader");
+        const mobileDock  = document.getElementById("mobile-dock");
+        let current = 0;
+
+        const updateLoader = () => {
+            current += Math.floor(Math.random() * 5) + 2;
+            if (current >= 100) {
+                current = 100;
+                counterEl.innerText     = "100%";
+                progressBar.style.width = "100%";
+                clearInterval(loaderInterval);
+                setTimeout(() => {
+                    preloader.style.opacity   = "0";
+                    preloader.style.transform = "translateY(-100dvh)";
+                    setTimeout(() => {
+                        preloader.style.display = "none";
+                        mobileDock.classList.add("visible");
+                    }, 1200);
+                }, 500);
+            } else {
+                counterEl.innerText     = current + "%";
+                progressBar.style.width = current + "%";
+            }
+        };
+        const loaderInterval = setInterval(updateLoader, 40);
+
+        // --- Header scroll ---
+        const header = document.getElementById("main-header");
+        window.addEventListener("scroll", () => {
+            header.classList.toggle("scrolled", window.scrollY > 50);
+        });
+
+        // --- Mobile dock overlay ---
+        const dockTrigger  = document.getElementById("dock-trigger");
+        const overlayMenu  = document.getElementById("control-center-overlay");
+        const overlayItems = document.querySelectorAll(".overlay-nav-item");
+        let isMenuOpen = false;
+
+        if (dockTrigger && overlayMenu) {
+            dockTrigger.addEventListener("click", () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    overlayMenu.classList.add("active");
+                    dockTrigger.innerHTML = '<i class="fa-solid fa-xmark"></i> SECURE';
+                    dockTrigger.style.boxShadow = "0 0 25px #FFD54A";
+                    overlayItems.forEach((item, i) => { item.style.transitionDelay = `${i * 0.05}s`; });
+                } else {
+                    overlayMenu.classList.remove("active");
+                    dockTrigger.innerHTML = '<i class="fa-solid fa-compass-drafting"></i> NAVIGATE';
+                    dockTrigger.style.boxShadow = "0 4px 15px rgba(212,175,55,0.4)";
+                    overlayItems.forEach(item => { item.style.transitionDelay = "0s"; });
+                }
+            });
+            overlayItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    overlayMenu.classList.remove("active");
+                    isMenuOpen = false;
+                    dockTrigger.innerHTML = '<i class="fa-solid fa-compass-drafting"></i> NAVIGATE';
+                });
+            });
+        }
+
+        // --- Scroll-triggered card entrance animation ---
+        const cards = document.querySelectorAll('.project-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const visibleCards = [...cards].filter(c => !c.classList.contains('is-hidden'));
+                    const idx = visibleCards.indexOf(entry.target);
+                    const delay = (idx % 3) * 80;
+                    setTimeout(() => {
+                        entry.target.classList.add('in-view');
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        cards.forEach(card => observer.observe(card));
+
+        // --- Filter ---
+        const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+
+                cards.forEach((card, idx) => {
+                    const cat = card.dataset.category;
+                    const matches = filter === 'all' || cat === filter;
+
+                    if (!matches) {
+                        card.classList.add('is-hidden');
+                        card.classList.remove('in-view');
+                    } else {
+                        card.classList.remove('is-hidden');
+                        card.classList.remove('in-view');
+                        setTimeout(() => {
+                            card.classList.add('in-view');
+                        }, (idx % 6) * 60 + 50);
+                    }
+                });
+            });
+        });
+
+        // --- Lightbox ---
+        const lightbox  = document.getElementById('lightbox');
+        const lbImg     = document.getElementById('lb-img');
+        const lbCounter = document.getElementById('lb-counter');
+        const lbClose   = document.getElementById('lb-close');
+        const lbPrev    = document.getElementById('lb-prev');
+        const lbNext    = document.getElementById('lb-next');
+
+        let currentImages = [];
+        let currentIndex  = 0;
+
+        function openLightbox(images, index) {
+            currentImages = images;
+            currentIndex  = index;
+            showLbImage();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function showLbImage() {
+            lbImg.style.opacity   = '0';
+            lbImg.style.transform = 'scale(0.96)';
+            setTimeout(() => {
+                lbImg.src = currentImages[currentIndex];
+                lbImg.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+                lbImg.style.opacity    = '1';
+                lbImg.style.transform  = 'scale(1)';
+            }, 160);
+            lbCounter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
+            lbPrev.style.display  = currentImages.length > 1 ? 'flex' : 'none';
+            lbNext.style.display  = currentImages.length > 1 ? 'flex' : 'none';
+        }
+
+        document.querySelectorAll('.project-card').forEach((card) => {
+            card.addEventListener('click', () => {
+                const cat = card.dataset.category;
+                const group  = [...document.querySelectorAll('.project-card:not(.is-hidden)')]
+                    .filter(c => c.dataset.category === cat);
+                const images   = group.map(c => c.querySelector('.project-img').src);
+                const imgIndex = group.indexOf(card);
+                openLightbox(images, imgIndex >= 0 ? imgIndex : 0);
+            });
+        });
+
+        lbClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        lbPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            showLbImage();
+        });
+        lbNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            showLbImage();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape')     closeLightbox();
+            if (e.key === 'ArrowLeft')  { currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length; showLbImage(); }
+            if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % currentImages.length; showLbImage(); }
+        });
+
+    });
+    </script>
+<script src="assets/sv-config.js"></script>
+<script src="assets/sv-public.js" defer></script>
+</body>
+</html>
